@@ -53,7 +53,7 @@ referenced by 'path'.  You may list zero or more.
      type - Checks type of value.  One of 'string', 'number', 'boolean', 'hash', 'array'.
      min_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, minimum number of elements to be considered valid.
      max_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, maximum number of elements to be considered valid.
-     regex - RegExp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
+     regex - Regexp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
      required - Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string.  No-op if false (use present => false to enforce absence).
      looks_like - String, one of 'url', 'ip'. Applies canned regexes (or more sophisticated matchers).
 
@@ -68,7 +68,7 @@ Given:
 
 ## Bugs, Limitations and Roadmap
 
-### Wildcard syntax not yet supported
+#### Wildcard syntax not yet supported
 
      /foo/* - Matches node['foo']['bar'], but not node['foo'] or node['foo']['bar']['baz']
      /foo/c* - Matches node['foo']['car'], but not node['foo']['bar']
@@ -76,9 +76,11 @@ Given:
 
 No support yet for *, ?, **, [<charclass>], or {<alternatives>} yet, though that is planned.
 
-### No tests for several checks
+#### No tests for several checks
 
-### Companion cookbook
+looks_like and required have no tests yet.
+
+#### Companion cookbook
 
 Simple cookbook named 'attribute-validator' that loads the gem and provides recipes for compile-time and convergence-time violation checking.
 
@@ -91,7 +93,7 @@ Simple cookbook named 'attribute-validator' that loads the gem and provides reci
 
 
 
-## Probably Slow
+#### Probably Slow
 
 ## Author
 
