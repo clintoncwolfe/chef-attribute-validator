@@ -13,6 +13,11 @@ class Chef
         def initialize (a_name, a_def)
           @name = a_name
           @path = a_def['path']
+
+          unless path
+            raise "Missing 'path' attribute for attribute validation rule '#{name}'"
+          end
+
           @enabled = true
           if a_def.has_key?('enabled')
             @enabled = a_def['enabled']

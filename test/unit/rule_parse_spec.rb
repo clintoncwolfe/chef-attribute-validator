@@ -36,6 +36,58 @@ describe "one rule with no checks" do
 
 end
 
+describe "one rule with a missing path" do
+  let(:node) { CAVHelper.load_fixture_attributes('rules_missing_path') }
+  
+  it "should fail during the constructor" do
+    expect { Chef::Attribute::Validator.new(node) }.to raise_error
+  end
+
+end
+
+
+describe "one rule with a type check" do
+  let(:node) { CAVHelper.load_fixture_attributes('rules_type_check') }
+  let(:av) { Chef::Attribute::Validator.new(node) }
+  include_examples "constructor"
+
+  it "should have one rule" do
+    expect(av.rules.size).to eq(1)
+  end
+
+  it "should have one rule with one check" do
+    expect(av.rules['test-type-rule'].check_count).to eq(1)
+  end
+
+  it "should have one rule with a type check check" do
+    expect(av.rules['test-type-rule'].has_check?('type')).to be_true
+  end
+
+end
+
+describe "one rule with a type check and a min_children check" do
+  let(:node) { CAVHelper.load_fixture_attributes('rules_type_and_min_children') }
+  let(:av) { Chef::Attribute::Validator.new(node) }
+  include_examples "constructor"
+
+  it "should have one rule" do
+    expect(av.rules.size).to eq(1)
+  end
+
+  it "should have one rule with two checks" do
+    expect(av.rules['test-type-and-min-children-rule'].check_count).to eq(2)
+  end
+
+  it "should have one rule with a type check check" do
+    expect(av.rules['test-type-and-min-children-rule'].has_check?('type')).to be_true
+  end
+
+  it "should have one rule with a min_children check" do
+    expect(av.rules['test-type-and-min-children-rule'].has_check?('min_children')).to be_true
+  end
+
+end
+
 
 
 
