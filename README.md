@@ -54,7 +54,7 @@ referenced by 'path'.  You may list zero or more.
      min_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, minimum number of elements to be considered valid.
      max_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, maximum number of elements to be considered valid.
      regex - Regexp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
-     required - Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string.  No-op if false (use present => false to enforce absence).
+     required - Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string, or if the value is an empty array or empty hash.  No-op if false (use present => false to enforce absence).
      looks_like - String, one of 'url', 'ip'. Applies canned regexes (or more sophisticated matchers).
 
 ## Referencing Attributes
