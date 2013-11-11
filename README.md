@@ -70,30 +70,31 @@ Given:
 
 #### Wildcard syntax not yet supported
 
+I'd like to have at least this:
+
      /foo/* - Matches node['foo']['bar'], but not node['foo'] or node['foo']['bar']['baz']
      /foo/c* - Matches node['foo']['car'], but not node['foo']['bar']
      /foo/?ar - Matches node['foo']['bar'] and node['foo']['bar'] but not node['foo']['bleh']
 
-No support yet for *, ?, **, [<charclass>], or {<alternatives>} yet, though that is planned.
-
-#### No tests for several checks
-
-looks_like and required have no tests yet.
+Possibly eventually support for **, [<charclass>], or {<alternatives>}.
 
 #### Companion cookbook
 
 Simple cookbook named 'attribute-validator' that loads the gem and provides recipes for compile-time and convergence-time violation checking.
 
+### Lame Exceptions
+
+No real exception class, just raising a bare string exception, which could certainly be improved upon.
+
 ### Planned checks:
 
    looks_like/hostname
    looks_like/email
-   name_regex - RegExp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
+   name_regex - Regexp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
    present - Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
 
-
-
 #### Probably Slow
+
 
 ## Author
 

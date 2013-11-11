@@ -1,0 +1,4 @@
+2013-11-10 Clinton Wolfe 0.1.0
+   Initial release
+     Type, Regex, Min/Max Children, Required, and LooksLike checks
+     No wildcards in paths yet, planned for 0.2.0
