@@ -48,19 +48,6 @@ class Chef
           checks.has_key?(check_name)      
         end
 
-        private
-
-        def val_scalar?(val)
-          [
-           Float,
-           Integer,
-           NilClass,
-           TrueClass,
-           FalseClass,
-           String,
-          ].any? { |k| val.kind_of?(k) }
-        end
-        
       end
     end
   end

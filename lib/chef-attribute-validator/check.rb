@@ -31,6 +31,21 @@ class Chef
           @@check_classes ||= {}
           @@check_classes[check_name] = klass
         end
+
+        def val_scalar?(val)
+          [
+           Float,
+           Integer,
+           NilClass,
+           TrueClass,
+           FalseClass,
+           String,
+          ].any? { |k| val.kind_of?(k) }
+        end
+        
+
+
+
       end
     end
   end
