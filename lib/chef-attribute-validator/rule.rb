@@ -1,7 +1,5 @@
-
-# TODO: dynaload checks/*
-
 require_relative './attribute_set.rb'
+require_relative './check.rb'
 
 class Chef
   class Attribute
@@ -22,15 +20,7 @@ class Chef
           
           @checks = {}
           a_def.keys.reject { |ck| %w(path enabled).include? ck }.sort.each do |check_name|
-            method_name = ('_check_' + check_name).to_sym
-            if Rule.private_method_defined?(method_name)
-              method(('_validate_check_arg_' + check_name).to_sym).call(a_def[check_name])
-              
-              # currying
-              checks[check_name] = Proc.new {|attrset| method(method_name).call(a_def[check_name], attrset)}
-            else
-              raise "Unrecognized option or check type '#{check_name}' for attribute validation rule '#{name}'"
-            end
+            checks[check_name] = Check.make(check_name, self, a_def[check_name])
           end
         end
 
@@ -38,8 +28,8 @@ class Chef
           violations = []
           if enabled
             attrset = Chef::Attribute::Validator::AttributeSet.new(node, path)
-            checks.each do |check_name, check_proc|
-              violations += check_proc.call(attrset)
+            checks.each do |check_name, check_obj|
+              violations += check_obj.check(attrset)
             end
           end
           violations
