@@ -16,7 +16,9 @@ class Chef
           unless @@check_classes.has_key?(check_name)
             raise "Unrecognized option or check type '#{check_name}' for attribute validation rule '#{a_rule.name}'"
           end
-          @@check_classes[check_name].new(a_rule, a_check_arg)
+          checker = @@check_classes[check_name].new(a_rule, a_check_arg)
+          checker.validate_check_arg
+          checker
         end
 
         def self.list_check_types
