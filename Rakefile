@@ -1,7 +1,7 @@
 # -*-ruby-*-
 
 require 'rake'
-require 'rspec/core/rake_task'
+#require 'rspec/core/rake_task'
 require "bundler/gem_tasks"
 
 desc "Runs all development tests"
@@ -18,10 +18,10 @@ end
 
 task :test => [:unit]
 desc "Runs unit tests"
-RSpec::Core::RakeTask.new(:unit) do |t|
-  t.pattern = 'test/unit/**/*_spec.rb'
-  t.rspec_opts = "-fd"
-end
+#RSpec::Core::RakeTask.new(:unit) do |t|
+#  t.pattern = 'test/unit/**/*_spec.rb'
+#  t.rspec_opts = "-fd"
+#end
 
 
 
