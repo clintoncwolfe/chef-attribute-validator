@@ -14,7 +14,7 @@ class Chef
 
         def self.choose(path_spec, node)
           # Ruby is an excellent language in which to write Perl
-          @@subclasses.map {|k| k.new(path_spec, node) }.map {|e| [e, e.suitability]}.sort { b[1] <=> a[1] }.map {|e| e[0]}.first
+          @@subclasses.map {|k| k.new(path_spec, node) }.map {|e| [e, e.suitability]}.sort { |a,b| b[1] <=> a[1] }.map {|e| e[0]}.first
         end
 
         def slashpath_to_steps(slashpath)
