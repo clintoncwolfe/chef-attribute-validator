@@ -108,6 +108,7 @@ describe Chef::Attribute::Validator::AttributeSet do
       end
 
     end
+
   end
 
 end
