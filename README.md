@@ -68,13 +68,13 @@ Given:
 
 ## Bugs, Limitations and Roadmap
 
-#### Wildcard syntax not yet supported
+### How to Report Bugs
 
-I'd like to have at least this:
+Open a github issue at https://github.com/clintoncwolfe/chef-attribute-validator, ideally with a failing test case, a pull request that fixes the bug, and a unicorn.
 
-     /foo/* - Matches node['foo']['bar'], but not node['foo'] or node['foo']['bar']['baz']
-     /foo/c* - Matches node['foo']['car'], but not node['foo']['bar']
-     /foo/?ar - Matches node['foo']['bar'] and node['foo']['bar'] but not node['foo']['bleh']
+### Roadmap
+
+#### Some wildcard syntax not yet supported
 
 Possibly eventually support for **, [<charclass>], or {<alternatives>}.
 
@@ -82,18 +82,22 @@ Possibly eventually support for **, [<charclass>], or {<alternatives>}.
 
 Simple cookbook named 'attribute-validator' that loads the gem and provides recipes for compile-time and convergence-time violation checking.
 
-### Lame Exceptions
-
-No real exception class, just raising a bare string exception, which could certainly be improved upon.
-
-### Planned checks:
+#### Planned checks:
 
    looks_like/hostname
    looks_like/email
    name_regex - Regexp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
    present - Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
 
-#### Probably Slow
+### Bugs and Defects
+
+#### Lame Exceptions
+
+No real exception class, just raising a bare string exception, which could certainly be improved upon; hard to catch.
+
+#### Wildcard Expander implementation is simplistic and inefficient
+
+BrutalRegex is terrible.
 
 
 ## Author
