@@ -56,6 +56,8 @@ referenced by 'path'.  You may list zero or more.
      regex - Regexp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
      required - Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string, or if the value is an empty array or empty hash.  No-op if false (use present => false to enforce absence).
      looks_like - String, one of 'url', 'ip'. Applies canned regexes (or more sophisticated matchers).
+     enum - Array, a set of possible values.  
+     proc - a Proc, which should take two args - a string rule name, and a Chef::Attribute::Validator::AttributeSet.  You can treat the attribute set as a hash - its each() methods will yield path, value pairs.  The proc should return a possibly empty array of Chef::Attribute::Validator::Violations.
 
 ## Referencing Attributes
 
