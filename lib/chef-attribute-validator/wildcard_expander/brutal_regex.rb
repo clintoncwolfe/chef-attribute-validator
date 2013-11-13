@@ -39,7 +39,7 @@ class Chef
               end
             else
               node_cursor.keys.each do |key|
-                child_paths.push prefix + '/' + key
+                child_paths.push prefix + '/' + key.to_s
                 if node_cursor[key].kind_of?(Mash) || node_cursor[key].kind_of?(Array)
                   child_paths += find_all_slashpaths(prefix + '/' + key, node_cursor[key])
                 end
