@@ -1,3 +1,6 @@
+2013-11-15 Clinton Wolfe 0.3.1
+   regex check should violate, but not throw exception, when given a non-string
+
 2013-11-12 Clinton Wolfe 0.3.0 
    Support for enum check 
    Support for proc check
@@ -10,3 +13,4 @@
    Initial release
      Type, Regex, Min/Max Children, Required, and LooksLike checks
      No wildcards in paths yet, planned for 0.2.0
+ 
