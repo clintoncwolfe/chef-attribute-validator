@@ -16,8 +16,12 @@ class Chef
             violations = []
             attrset.each do |path, value|
               if val_scalar?(value)
-                unless check_arg.match(value)
-                  violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}', which does not match regex '#{check_arg}'")
+                if value.respond_to?(:match)
+                  unless check_arg.match(value)
+                    violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}', which does not match regex '#{check_arg}'")
+                  end
+                else
+                  violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}' (class #{value.class.name}), which is cannot be regexed")
                 end
               end
             end
