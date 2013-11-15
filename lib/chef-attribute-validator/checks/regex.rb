@@ -20,8 +20,6 @@ class Chef
                   unless check_arg.match(value)
                     violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}', which does not match regex '#{check_arg}'")
                   end
-                else
-                  violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}' (class #{value.class.name}), which is cannot be regexed")
                 end
               end
             end

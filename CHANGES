@@ -1,3 +1,6 @@
+2013-11-15 Clinton Wolfe 0.3.2
+   umm wait regex should not violate if given a non-string - use type check if you want that
+
 2013-11-15 Clinton Wolfe 0.3.1
    regex check should violate, but not throw exception, when given a non-string
 
