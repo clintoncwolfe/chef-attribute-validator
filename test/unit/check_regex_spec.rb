@@ -58,14 +58,14 @@ describe "'regex' check" do
       expect(av.validate_rule('not-foo-foo')).not_to be_empty
     end      
 
-    it "/foo/ should violate on false" do
+    it "/foo/ should not violate on false" do
       expect { av.validate_rule('foo-false') }.not_to raise_error
-      expect(av.validate_rule('foo-false')).not_to be_empty
+      expect(av.validate_rule('foo-false')).to be_empty
     end      
 
-    it "/foo/ should violate on 1" do
+    it "/foo/ should not violate on 1" do
       expect { av.validate_rule('foo-one') }.not_to raise_error
-      expect(av.validate_rule('foo-one')).not_to be_empty
+      expect(av.validate_rule('foo-one')).to be_empty
     end      
 
   end
