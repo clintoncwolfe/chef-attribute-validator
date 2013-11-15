@@ -1,3 +1,7 @@
+2013-11-15 Clinton Wolfe 0.4.0
+   Add 'present' check
+   Reformat list of checks in README
+
 2013-11-15 Clinton Wolfe 0.3.2
    umm wait regex should not violate if given a non-string - use type check if you want that
 
