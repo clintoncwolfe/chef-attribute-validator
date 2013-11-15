@@ -50,14 +50,42 @@ Each rule gets a unique name.  Each entry is hash structure with the following k
 The remaining entries describe criteria to enforce on the value of the attribute(s) 
 referenced by 'path'.  You may list zero or more.
 
-     type - Checks type of value.  One of 'string', 'number', 'boolean', 'hash', 'array'.
-     min_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, minimum number of elements to be considered valid.
-     max_children - Integer.  Fails for all but Hash and Array.  For Hash and Array, maximum number of elements to be considered valid.
-     regex - Regexp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
-     required - Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string, or if the value is an empty array or empty hash.  No-op if false (use present => false to enforce absence).
-     looks_like - String, one of 'url', 'ip'. Applies canned regexes (or more sophisticated matchers).
-     enum - Array, a set of possible values.  
-     proc - a Proc, which should take two args - a string rule name, and a Chef::Attribute::Validator::AttributeSet.  You can treat the attribute set as a hash - its each() methods will yield path, value pairs.  The proc should return a possibly empty array of Chef::Attribute::Validator::Violations.
+#### type 
+
+Checks type of value.  One of 'string', 'number', 'boolean', 'hash', 'array'.
+
+#### min_children
+
+Integer.  Fails for all but Hash and Array.  For Hash and Array, minimum number of elements to be considered valid.
+
+#### max_children 
+
+Integer.  Fails for all but Hash and Array.  For Hash and Array, maximum number of elements to be considered valid.
+
+#### present
+
+Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
+
+#### regex
+
+Regexp.  Applies given regex to the value.  Ignored for Hash and Array.  See looks_like for a selection of canned regexen.
+
+#### required
+
+Boolean.  If true, fails if the path matches zero attributes, or the value is nil, or the value is the empty string, or if the value is an empty array or empty hash.  No-op if false (use present => false to enforce absence).
+
+#### looks_like
+
+String, one of 'url', 'ip'.  Applies canned regexes (or more sophisticated matchers, like contructing objects from the stdlib).
+
+#### enum
+
+Array, a set of possible values.
+
+#### proc 
+
+A Proc, which will be evaluated to determine the validity.  The proc should take two args - a string rule name, and a Chef::Attribute::Validator::AttributeSet.  You can treat the attribute set as a hash - its each() methods will yield path, value pairs.  
+The proc should return a possibly empty array of Chef::Attribute::Validator::Violations.
 
 ## Referencing Attributes
 
@@ -76,20 +104,17 @@ Open a github issue at https://github.com/clintoncwolfe/chef-attribute-validator
 
 ### Roadmap
 
+#### Need examples in README
+
 #### Some wildcard syntax not yet supported
 
 Possibly eventually support for **, [<charclass>], or {<alternatives>}.
-
-#### Companion cookbook
-
-Simple cookbook named 'attribute-validator' that loads the gem and provides recipes for compile-time and convergence-time violation checking.
 
 #### Planned checks:
 
    looks_like/hostname
    looks_like/email
    name_regex - Regexp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
-   present - Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
 
 ### Bugs and Defects
 
