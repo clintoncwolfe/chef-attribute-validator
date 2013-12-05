@@ -26,25 +26,30 @@ class Chef
             attrset.each do |path, value|
               if val_scalar?(value) then
                 next if value.nil?
-                case check_arg
-                when 'ip'
-                  begin
-                    IPAddr.new(value)
-                  rescue
-                    violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an IP address")
-                  end
-                when 'url'
-                  begin
-                    URI(value)
-                  rescue
-                    violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a URL")
-                  end
-                end
+                send(('ll_check_' + check_arg).to_sym, value, path, violations)
               end
             end
             violations
           end
 
+          private
+          
+          def ll_check_ip(value, path, violations)
+            begin
+              IPAddr.new(value)
+            rescue
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an IP address")
+            end  
+          end
+
+          def ll_check_url(value, path, violations)
+            begin
+              URI(value)
+            rescue
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a URL")
+            end
+          end
+          
         end
       end
     end
