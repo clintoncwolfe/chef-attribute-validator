@@ -14,6 +14,7 @@ class Chef
             expected = [
                         'email',
                         'guid',
+                        'hostname',
                         'ip',
                         'url',
                        ]
@@ -76,7 +77,18 @@ class Chef
             end
           end
 
+          def ll_check_hostname(value, path, violations)
+            ip_regex = /^(\d{1,3}\.){3}\d{1,3}$/
+            hostname_regex = /^([a-z0-9\-]+\.)*[a-z0-9\-]{2,}$/i
 
+            if value.match(ip_regex)
+              ll_check_ip(value, path, violations)
+            else
+              unless value.match(hostname_regex)
+                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a hostname, nor an IPv4.")
+              end
+            end
+          end
         end
       end
     end
