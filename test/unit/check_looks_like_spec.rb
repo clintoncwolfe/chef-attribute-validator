@@ -20,6 +20,10 @@ describe "'looks_like' check" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_url')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
     end
+    it "should accept 'guid'" do
+      node = CAVHelper.load_fixture_attributes('check_looks_like_arg_guid')
+      expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
+    end
     it "should reject 'your mom'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_your_mom')
       expect { Chef::Attribute::Validator.new(node) }.to raise_error
@@ -97,6 +101,36 @@ describe "'looks_like' check" do
 
     it "should not violate on 'http://localhost'" do
       expect(av.validate_rule('url-http-localhost')).to be_empty
+    end
+
+  end
+
+  context "when the mode is 'guid'" do
+    let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_guid') }
+    let(:av) { Chef::Attribute::Validator.new(node) }
+
+    it "should not violate on missing" do
+      expect(av.validate_rule('guid-missing')).to be_empty
+    end
+
+    it "should not violate on nil" do
+      expect(av.validate_rule('guid-nil')).to be_empty
+    end
+
+    it "should not violate on a lower-case guid" do
+      expect(av.validate_rule('guid-lower-case')).to be_empty
+    end
+
+    it "should not violate on a upper-case guid" do
+      expect(av.validate_rule('guid-upper-case')).to be_empty
+    end
+
+    it "should violate on a guid without dashes" do
+      expect(av.validate_rule('guid-spaces')).not_to be_empty
+    end
+
+    it "should violate on an empty string" do
+      expect(av.validate_rule('guid-empty')).not_to be_empty
     end
 
   end
