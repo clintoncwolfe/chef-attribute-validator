@@ -12,16 +12,20 @@ describe "'looks_like' check" do
   end
 
   describe "check_arg checks" do
+    it "should accept 'email'" do
+      node = CAVHelper.load_fixture_attributes('check_looks_like_arg_email')
+      expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
+    end
+    it "should accept 'guid'" do
+      node = CAVHelper.load_fixture_attributes('check_looks_like_arg_guid')
+      expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
+    end
     it "should accept 'ip'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_ip')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
     end
     it "should accept 'url'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_url')
-      expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
-    end
-    it "should accept 'guid'" do
-      node = CAVHelper.load_fixture_attributes('check_looks_like_arg_guid')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
     end
     it "should reject 'your mom'" do
@@ -135,6 +139,49 @@ describe "'looks_like' check" do
 
   end
 
+  context "when the mode is 'email'" do
+    let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_email') }
+    let(:av) { Chef::Attribute::Validator.new(node) }
 
+    it "should not violate on missing" do
+      expect(av.validate_rule('email-missing')).to be_empty
+    end
 
+    it "should not violate on nil" do
+      expect(av.validate_rule('email-nil')).to be_empty
+    end
+
+    it "should violate on an empty string" do
+      expect(av.validate_rule('email-empty')).not_to be_empty
+    end
+
+    it "should not violate on joe@example.com" do
+      expect(av.validate_rule('email-joe')).to be_empty
+    end
+
+    it "should not violate on a upper-case email" do
+      expect(av.validate_rule('email-case-upper')).to be_empty
+    end
+
+    it "should violate on a email without a user" do
+      expect(av.validate_rule('email-no-user')).not_to be_empty
+    end
+
+    it "should violate on a email without a hostname" do
+      expect(av.validate_rule('email-no-hostname')).not_to be_empty
+    end
+
+    it "should violate on a email with spaces" do
+      expect(av.validate_rule('email-spaces')).not_to be_empty
+    end
+
+    it "should violate on a email with quotes" do
+      expect(av.validate_rule('email-quotes')).not_to be_empty
+    end
+
+    it "should violate on phonetic-at" do
+      expect(av.validate_rule('email-phonetic-at')).not_to be_empty
+    end
+
+  end
 end
