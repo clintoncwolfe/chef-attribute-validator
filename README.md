@@ -76,7 +76,23 @@ Boolean.  If true, fails if the path matches zero attributes, or the value is ni
 
 #### looks_like
 
-String, one of 'email', 'guid', 'ip', 'url'.  Applies canned regexes (or more sophisticated matchers, like constructing objects from the stdlib).
+String, one of 'email', 'guid', 'ip', 'url'.  Applies canned regexes (or more sophisticated matchers, like constructing objects from the stdlib).  Details:
+
+##### email
+
+Uses a naive regex to do a simple sanity check.  It may be too tight or too loose for you, in which case you can use a Proc and spend as much of your energy as you please solving that problem.
+
+##### guid
+
+Uses a regex to match GUID/UUIDs, like 'ec73f2a8-510d-4e6a-be5d-7b234da03c92'
+
+##### ip
+
+Uses the stdlib 'ipaddr' library to try to construct an IPAddr object from the value.  If it worked, it's an IP.
+
+##### url
+
+Uses the stdlib 'url' library to try to construct an URI object from the value.  If it worked, it's an URL.  This is probably too loose; it will accept bare hostnames, for example.
 
 #### enum
 
