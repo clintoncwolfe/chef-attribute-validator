@@ -86,9 +86,13 @@ Uses a naive regex to do a simple sanity check.  It may be too tight or too loos
 
 Uses a regex to match GUID/UUIDs, like 'ec73f2a8-510d-4e6a-be5d-7b234da03c92'
 
+##### hostname
+
+Uses a regex to guess if it looks hostnamish.  Does not require a dot.  Accepts IPv4, and checks ranges.
+
 ##### ip
 
-Uses the stdlib 'ipaddr' library to try to construct an IPAddr object from the value.  If it worked, it's an IP.
+Uses the stdlib 'ipaddr' library to try to construct an IPAddr object from the value.  If it worked, it's an IP.  IPv6 is supported; ranges are checked; CIDR notation is supported; and no you can't pass a hostname to this.
 
 ##### url
 

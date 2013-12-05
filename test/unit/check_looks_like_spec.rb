@@ -20,6 +20,10 @@ describe "'looks_like' check" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_guid')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
     end
+    it "should accept 'hostname'" do
+      node = CAVHelper.load_fixture_attributes('check_looks_like_arg_hostname')
+      expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
+    end
     it "should accept 'ip'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_ip')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
@@ -188,4 +192,56 @@ describe "'looks_like' check" do
     end
 
   end
+
+  context "when the mode is 'hostname'" do
+    let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_hostname') }
+    let(:av) { Chef::Attribute::Validator.new(node) }
+
+    it "should not violate on missing" do
+      expect(av.validate_rule('hostname-missing')).to be_empty
+    end
+
+    it "should not violate on nil" do
+      expect(av.validate_rule('hostname-nil')).to be_empty
+    end
+
+    it "should violate on an empty string" do
+      expect(av.validate_rule('hostname-empty')).not_to be_empty
+    end
+
+    it "should not violate on a lower-case hostname" do
+      expect(av.validate_rule('hostname-case-lower')).to be_empty
+    end
+
+    it "should not violate on a upper-case hostname" do
+      expect(av.validate_rule('hostname-case-upper')).to be_empty
+    end
+
+    it "should not violate on a 'localhost'" do
+      expect(av.validate_rule('hostname-localhost')).to be_empty
+    end
+
+    it "should not violate on 'foo.iad'" do
+      expect(av.validate_rule('hostname-iad')).to be_empty
+    end
+
+    it "should not violate on '127.0.0.1'" do
+      expect(av.validate_rule('hostname-ip-127')).to be_empty
+    end
+
+    it "should violate on '300.300.300.300'" do
+      expect(av.validate_rule('hostname-ip-300')).not_to be_empty
+    end
+
+    it "should violate on 'under_score.com'" do
+      expect(av.validate_rule('hostname-underscore')).not_to be_empty
+    end
+
+    it "should violate on spaces" do
+      expect(av.validate_rule('hostname-spaces')).not_to be_empty
+    end
+
+  end
+  
+
 end
