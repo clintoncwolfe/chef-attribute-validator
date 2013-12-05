@@ -76,7 +76,7 @@ Boolean.  If true, fails if the path matches zero attributes, or the value is ni
 
 #### looks_like
 
-String, one of 'url', 'ip'.  Applies canned regexes (or more sophisticated matchers, like contructing objects from the stdlib).
+String, one of 'email', 'guid', 'ip', 'url'.  Applies canned regexes (or more sophisticated matchers, like constructing objects from the stdlib).
 
 #### enum
 

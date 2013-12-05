@@ -5,6 +5,7 @@ default['empty'] = ''
 default['email']['joe'] = 'joe@example.com'
 default['email']['case']['lower'] = 'ray@cartalk.com'
 default['email']['case']['upper'] = 'TOMMY@CARTALK.COM'
+default['email']['tagged'] = 'joe+tag@foo.com'
 
 default['email']['no']['user'] = '@foo.com'
 default['email']['no']['hostname'] = 'johnny@'
@@ -41,6 +42,11 @@ rules['email-case-upper'] = {
 
 rules['email-joe'] = {
   'path' =>  '/email/joe',
+  'looks_like' => 'email',
+}
+
+rules['email-tagged'] = {
+  'path' =>  '/email/tagged',
   'looks_like' => 'email',
 }
 

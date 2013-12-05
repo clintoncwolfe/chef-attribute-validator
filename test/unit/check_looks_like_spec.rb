@@ -163,6 +163,10 @@ describe "'looks_like' check" do
       expect(av.validate_rule('email-case-upper')).to be_empty
     end
 
+    it "should not violate on a joe+tag@foo.com" do
+      expect(av.validate_rule('email-tagged')).to be_empty
+    end
+
     it "should violate on a email without a user" do
       expect(av.validate_rule('email-no-user')).not_to be_empty
     end

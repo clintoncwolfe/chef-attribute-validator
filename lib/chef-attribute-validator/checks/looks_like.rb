@@ -12,6 +12,7 @@ class Chef
 
           def validate_check_arg
             expected = [
+                        'email',
                         'guid',
                         'ip',
                         'url',
@@ -62,8 +63,23 @@ class Chef
             end
           end
           
-          
-
+          def ll_check_email(value, path, violations)
+            # This is simple and crude.  Will reject some things you might wish it didn't:
+            # root@localhost
+            # root
+            #
+            
+            # Email validation with regexes is stupid.
+            email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+            
+            if value.respond_to?(:match)
+              unless value.match(email_regex)
+                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an email address, but I could be wrong.  If I am wrong, use a Proc instead.")
+              end
+            else
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' is not string-like, so it can't be an email")
+            end
+          end
 
         end
       end
