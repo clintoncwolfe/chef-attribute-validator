@@ -128,12 +128,10 @@ Open a github issue at https://github.com/clintoncwolfe/chef-attribute-validator
 
 #### Some wildcard syntax not yet supported
 
-Possibly eventually support for **, [<charclass>], or {<alternatives>}.
+Possibly eventually support for [<charclass>], or {<alternatives>}.
 
 #### Planned checks:
 
-   looks_like/hostname
-   looks_like/email
    name_regex - Regexp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
 
 ### Bugs and Defects
@@ -145,7 +143,6 @@ No real exception class, just raising a bare string exception, which could certa
 #### Wildcard Expander implementation is simplistic and inefficient
 
 BrutalRegex is terrible.
-
 
 ## Author
 

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Chef::Attribute::Validator::VERSION
   spec.authors       = ["Clinton Wolfe"]
   spec.email         = ["clinton@omniti.com"]
-  spec.description   = %q{Define, enforce, and handle violations of validation rules for Chef node attributes.  This gem provides the validation engine, and can be used outside of a convergence run; a cookbook (attribute-validator) is availabel to perform validation during a chef run, at compile or converge time.}
+  spec.description   = %q{Define, enforce, and handle violations of validation rules for Chef node attributes.  This gem provides the validation engine, and can be used outside of a convergence run; a cookbook (attribute-validator) is available to perform validation during a chef run, at compile or converge time.}
   spec.summary       = %q{A Rubygem implementing a rule engine for validating Chef node attributes.}
   spec.homepage      = "https://github.com/clintoncwolfe/chef-attribute-validator"
   spec.license       = "BSD (3-clause)"
