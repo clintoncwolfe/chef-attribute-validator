@@ -12,6 +12,7 @@ class Chef
 
           def validate_check_arg
             expected = [
+                        'guid',
                         'ip',
                         'url',
                        ]
@@ -34,6 +35,17 @@ class Chef
 
           private
           
+          def ll_check_guid(value, path, violations)
+            if value.respond_to?(:match)
+              guid_regex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/
+              unless value.match(guid_regex)
+                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a v4 UUID (see RFC 4122)")
+              end
+            else
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' is not string-like, so it can't be a GUID")
+            end
+          end
+
           def ll_check_ip(value, path, violations)
             begin
               IPAddr.new(value)
@@ -50,6 +62,9 @@ class Chef
             end
           end
           
+          
+
+
         end
       end
     end
