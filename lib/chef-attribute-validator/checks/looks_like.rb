@@ -28,6 +28,10 @@ class Chef
             attrset.each do |path, value|
               if val_scalar?(value) then
                 next if value.nil?
+                unless value.respond_to?(:match)
+                  violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' is not string-like, so it can't be a #{check_arg}")
+                  next
+                end
                 send(('ll_check_' + check_arg).to_sym, value, path, violations)
               end
             end
@@ -37,13 +41,9 @@ class Chef
           private
           
           def ll_check_guid(value, path, violations)
-            if value.respond_to?(:match)
-              guid_regex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/
-              unless value.match(guid_regex)
-                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a v4 UUID (see RFC 4122)")
-              end
-            else
-              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' is not string-like, so it can't be a GUID")
+            guid_regex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/
+            unless value.match(guid_regex)
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a v4 UUID (see RFC 4122)")
             end
           end
 
@@ -71,15 +71,11 @@ class Chef
             
             # Email validation with regexes is stupid.
             email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-            
-            if value.respond_to?(:match)
-              unless value.match(email_regex)
-                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an email address, but I could be wrong.  If I am wrong, use a Proc instead.")
-              end
-            else
-              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' is not string-like, so it can't be an email")
+            unless value.match(email_regex)
+              violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an email address, but I could be wrong.  If I am wrong, use a Proc instead.")
             end
           end
+
 
         end
       end
