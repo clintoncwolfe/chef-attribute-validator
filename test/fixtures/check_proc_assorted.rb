@@ -20,7 +20,6 @@ proc_array_looks_fibonacci = Proc.new do |rule_name, attrset|
   prev1 = 0 
   prev2 = 1
   attrset.each do |path, value|
-    # binding.pry
     unless value == prev1 + prev2
       violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, 'Stopped looking like a fibonacci sequence')
     end
