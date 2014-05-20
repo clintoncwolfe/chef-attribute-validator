@@ -60,7 +60,7 @@ describe Chef::Attribute::Validator::AttributeSet do
       end
       let(:ats) {  Chef::Attribute::Validator::AttributeSet.new(node, '/*') }
       it "should be able to list all root elements" do
-        expect(ats.size).to eq 7
+        expect(ats.size).to eq 6
       end
     end
 

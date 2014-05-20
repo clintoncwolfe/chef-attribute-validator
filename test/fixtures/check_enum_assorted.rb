@@ -8,11 +8,7 @@ default['fruits']['a'] = 'banana'
 default['fruits']['b'] = 'gichee'
 default['fruits']['c'] = 'tomato'
 
-default['cats'][0] = 'leopard'
-default['cats'][1] = 'puma'
-default['cats'][2] = 'mountain lion'
-default['cats'][3] = 'catamount'
-
+default['cats'] = [ 'leopard', 'puma', 'mountain lion', 'catamount' ]
 
 rules = default['attribute-validator']['rules']
 rules['empty-a'] = {
