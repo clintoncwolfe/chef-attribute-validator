@@ -23,9 +23,6 @@ class Chef
           # Since we begin with /, the first element is ""
           if steps[0] == "" then steps.shift end
 
-          # Promote integer strings to integers
-          # steps.map! { |s| s.match(/^\d+$/) ? s.to_i : s }
-
           steps
         end
 
