@@ -1,3 +1,7 @@
+2014-05-20 Clinton Wolfe 0.6.1
+   Fixed issue #6, inconsistent behavior for 'enum' and 'type' checks when a attr has a nil value
+   Fixed issue #5, pathfinder breaking when given a path containing a stringified integer and no wildcards
+
 2014-01-27 Clinton Wolfe 0.6.0
    Loosened runtime dep on chef
 
