@@ -97,11 +97,11 @@ describe "'child_keys' check" do
     end
 
     it "['foo', 'bar'] should violate on foo, bar, baz" do
-      expect(av.validate_rule('ar-foo-foobarbaz')).to be_empty
+      expect(av.validate_rule('ar-foo-foobarbaz')).not_to be_empty
     end
 
     it "['foo', 'bar'] should violate on baz" do
-      expect(av.validate_rule('ar-foo-baz')).to be_empty
+      expect(av.validate_rule('ar-foo-baz')).not_to be_empty
     end
 
   end
