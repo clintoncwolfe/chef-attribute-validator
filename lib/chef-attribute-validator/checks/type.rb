@@ -33,6 +33,7 @@ class Chef
             }
 
             attrset.each do |path, value|
+              next if value.nil?
               unless klasses[check_arg].any? {|k| value.kind_of?(k) }
                 violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}', which does not appear to be the right type - expected '#{check_arg}'")
               end

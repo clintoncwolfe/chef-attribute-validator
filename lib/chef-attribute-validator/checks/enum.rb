@@ -15,7 +15,7 @@ class Chef
           def check(attrset)
             violations = []
             attrset.each do |path, value|
-              if val_scalar?(value)
+              if val_scalar?(value) && ! value.nil?
                 unless check_arg.include?(value)
                   violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attribute's value is '#{value}', which is not one of '#{check_arg.map{ |e| e.to_s }.join(',')} '")
                 end

@@ -27,8 +27,8 @@ describe "'type' check" do
       expect(av.validate_rule('string-number')).not_to be_empty
     end
 
-    it "should violate on nil" do
-      expect(av.validate_rule('string-nil')).not_to be_empty
+    it "should not violate on nil" do
+      expect(av.validate_rule('string-nil')).to be_empty
     end
 
     it "should violate on array" do
@@ -57,8 +57,8 @@ describe "'type' check" do
       expect(av.validate_rule('number-as-string')).not_to be_empty
     end
 
-    it "should violate on nil" do
-      expect(av.validate_rule('number-nil')).not_to be_empty
+    it "should not violate on nil" do
+      expect(av.validate_rule('number-nil')).to be_empty
     end
 
     it "should violate on array" do
@@ -99,8 +99,8 @@ describe "'type' check" do
       expect(av.validate_rule('boolean-empty')).not_to be_empty
     end
 
-    it "should violate on nil" do
-      expect(av.validate_rule('boolean-nil')).not_to be_empty
+    it "should not violate on nil" do
+      expect(av.validate_rule('boolean-nil')).to be_empty
     end
 
     it "should violate on array" do
@@ -141,8 +141,8 @@ describe "'type' check" do
       expect(av.validate_rule('array-zero')).not_to be_empty
     end
 
-    it "should violate on nil" do
-      expect(av.validate_rule('array-nil')).not_to be_empty
+    it "should not violate on nil" do
+      expect(av.validate_rule('array-nil')).to be_empty
     end
 
     it "should violate on hash" do
@@ -179,8 +179,8 @@ describe "'type' check" do
       expect(av.validate_rule('hash-zero')).not_to be_empty
     end
 
-    it "should violate on nil" do
-      expect(av.validate_rule('hash-nil')).not_to be_empty
+    it "should not violate on nil" do
+      expect(av.validate_rule('hash-nil')).to be_empty
     end
 
     it "should violate on array" do

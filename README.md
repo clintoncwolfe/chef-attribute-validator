@@ -50,6 +50,8 @@ Each rule gets a unique name.  Each entry is hash structure with the following k
 The remaining entries describe criteria to enforce on the value of the attribute(s) 
 referenced by 'path'.  You may list zero or more.
 
+Note that nil is permitted as a value by all checks, except the 'required' check (which performs nilness checks) and the 'proc' check (which implements arbitrary user behavior).
+
 #### type 
 
 Checks type of value.  One of 'string', 'number', 'boolean', 'hash', 'array'.
@@ -64,7 +66,7 @@ Integer.  Fails for all but Hash and Array.  For Hash and Array, maximum number 
 
 #### present
 
-Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
+Boolean.  If true, fails if the path matches zero attributes.  If false, fails if the path matches nonzero attributes.  This is most useful for enforcing deprecated attributes.  Does not consider nilness, only existence of attribute key(s).  See also required.
 
 #### regex
 

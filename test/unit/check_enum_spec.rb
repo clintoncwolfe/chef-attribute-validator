@@ -47,6 +47,10 @@ describe "'enum' check" do
       expect(av.validate_rule('empty-empty-match')).to be_empty
     end
 
+    it "should not violate on a nil-valued entry" do
+      expect(av.validate_rule('nil')).to be_empty
+    end
+
     it "should not violate on a hash-valued entry" do
       expect(av.validate_rule('hash')).to be_empty
     end

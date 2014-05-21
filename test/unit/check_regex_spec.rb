@@ -38,6 +38,10 @@ describe "'regex' check" do
       expect(av.validate_rule('empty-empty')).to be_empty
     end
 
+    it "/foo/ should not violate on nil" do
+      expect(av.validate_rule('foo-nil')).to be_empty
+    end
+
     it "/foo/ should not violate on foo" do
       expect(av.validate_rule('foo-foo')).to be_empty
     end
