@@ -42,10 +42,7 @@ class Chef
            String,
           ].any? { |k| val.kind_of?(k) }
         end
-        
-
-
-
+       
       end
     end
   end
