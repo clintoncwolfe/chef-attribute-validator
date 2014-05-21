@@ -50,7 +50,16 @@ Each rule gets a unique name.  Each entry is hash structure with the following k
 The remaining entries describe criteria to enforce on the value of the attribute(s) 
 referenced by 'path'.  You may list zero or more.
 
-Note that nil is permitted as a value by all checks, except the 'required' check (which performs nilness checks) and the 'proc' check (which implements arbitrary user behavior).
+Note that nil is permitted as a value by most checks, except the following: 
+
+  'required' check (which performs nilness checks)
+  'proc' check (which implements arbitrary user behavior)
+  'min_children', 'max_children' (which are restricted to operating on Hashes and Arrays)
+  'child_keys' (which is restricted to operating on Hashes)
+
+#### child_keys
+
+Checks the immediate keys of the given path (which must be a Hash).  Check argument may be an Array of Strings, in which case each key that is present must be in the list of valid keys, or else a Regexp, which will be matched against each key.
 
 #### type 
 
@@ -78,7 +87,7 @@ Boolean.  If true, fails if the path matches zero attributes, or the value is ni
 
 #### looks_like
 
-String, one of 'email', 'guid', 'ip', 'url'.  Applies canned regexes (or more sophisticated matchers, like constructing objects from the stdlib).  Details:
+String, one of 'email', 'guid', 'hostname', 'ip', 'url'.  Applies canned regexes (or more sophisticated matchers, like constructing objects from the stdlib).  Details:
 
 ##### email
 
@@ -134,7 +143,7 @@ Possibly eventually support for [<charclass>], or {<alternatives>}.
 
 #### Planned checks:
 
-   name_regex - Regexp.  Applies given regex to the last element in the attribute path ('basename', if you will)   
+Perhaps a hostname:port looks_like?
 
 ### Bugs and Defects
 
