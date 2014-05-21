@@ -43,16 +43,12 @@ describe "'proc' check" do
       expect(av.validate_rule('nil-never-fail')).to be_empty
     end
 
-    it "should violate on a missing attribute with an always-fail proc" do
-      expect(av.validate_rule('missing-always-fail')).not_to be_empty
+    it "should not violate on a missing attribute with an always-fail proc" do
+      expect(av.validate_rule('missing-always-fail')).to be_empty
     end
 
-    it "should violate on a nil attribute with an always-fail proc" do
-      expect(av.validate_rule('nil-always-fail')).not_to be_empty
-    end
-
-    it "a violation should include the correct rule name" do
-      expect(av.validate_rule('nil-always-fail')[0].rule_name).to eql 'nil-always-fail'
+    it "should not violate on a nil attribute with an always-fail proc" do
+      expect(av.validate_rule('nil-always-fail')).to be_empty
     end
 
     it "fibonacci scanner should not violate on a correct fib sequence" do
@@ -63,6 +59,9 @@ describe "'proc' check" do
       expect(av.validate_rule('invalid-fibo')).not_to be_empty
     end
 
+    it "a violation should include the correct rule name" do
+      expect(av.validate_rule('invalid-fibo')[0].rule_name).to eql 'invalid-fibo'
+    end
 
   end
 

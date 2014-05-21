@@ -11,6 +11,10 @@ default['fruits']['c'] = 'tomato'
 default['cats'] = [ 'leopard', 'puma', 'mountain lion', 'catamount' ]
 
 rules = default['attribute-validator']['rules']
+rules['nil'] = {
+  'path' =>  '/nil',
+  'enum' => ['a'],
+}
 rules['empty-a'] = {
   'path' =>  '/empty',
   'enum' => ['a'],

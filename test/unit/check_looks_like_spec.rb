@@ -243,5 +243,4 @@ describe "'looks_like' check" do
 
   end
   
-
 end
