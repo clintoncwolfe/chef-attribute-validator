@@ -50,7 +50,7 @@ Each rule gets a unique name.  Each entry is hash structure with the following k
 The remaining entries describe criteria to enforce on the value of the attribute(s) 
 referenced by 'path'.  You may list zero or more.
 
-Note that nil is permitted as a value by all checks, except the 'required' check.
+Note that nil is permitted as a value by all checks, except the 'required' check (which performs nilness checks) and the 'proc' check (which implements arbitrary user behavior).
 
 #### type 
 
