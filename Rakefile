@@ -18,13 +18,13 @@ task :syntax do |t|
 end
 
 
-task :test => [:rubocop]
-desc "Runs rubocop against the code, to enforce style and standards."
-task :rubocop do |t|
-  puts "------------Rubocop-----------"
-  system("rubocop -c rubocop.yml")
+# Rubocop
+begin
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new(:lint)
+rescue LoadError
+  puts 'rubocop is not available. Install the rubocop gem to run the lint tests.'
 end
-
 
 #task :test => [:unit]
 #desc "Runs unit tests"
