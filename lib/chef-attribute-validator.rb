@@ -1,7 +1,7 @@
-require "chef-attribute-validator/version"
-require "chef-attribute-validator/violation"
-require "chef-attribute-validator/rule"
-require "chef-attribute-validator/attribute_set"
+require 'chef-attribute-validator/version'
+require 'chef-attribute-validator/violation'
+require 'chef-attribute-validator/rule'
+require 'chef-attribute-validator/attribute_set'
 
 class Chef
   class Attribute

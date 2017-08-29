@@ -5,13 +5,13 @@ require_relative './spec_helper'
 
 describe "'looks_like' check" do
 
-  describe "check registry" do
-    it "should be present in the Check registry" do
+  describe 'check registry' do
+    it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('looks_like')
     end
   end
 
-  describe "check_arg checks" do
+  describe 'check_arg checks' do
     it "should accept 'email'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_email')
       expect { Chef::Attribute::Validator.new(node) }.not_to raise_error
@@ -36,7 +36,7 @@ describe "'looks_like' check" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_your_mom')
       expect { Chef::Attribute::Validator.new(node) }.to raise_error
     end
-    it "should reject a regex" do
+    it 'should reject a regex' do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_regex')
       expect { Chef::Attribute::Validator.new(node) }.to raise_error
     end
@@ -46,39 +46,39 @@ describe "'looks_like' check" do
     let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_ip') }
     let(:av) { Chef::Attribute::Validator.new(node) }
 
-    it "should not violate on missing" do
+    it 'should not violate on missing' do
       expect(av.validate_rule('ip-missing')).to be_empty
     end
 
-    it "should not violate on nil" do
+    it 'should not violate on nil' do
       expect(av.validate_rule('ip-nil')).to be_empty
     end
 
-    it "should violate on 1234.123.1.1" do
+    it 'should violate on 1234.123.1.1' do
       expect(av.validate_rule('ip-malformed')).not_to be_empty
     end
 
-    it "should violate on 300.300.300.1" do
+    it 'should violate on 300.300.300.1' do
       expect(av.validate_rule('ip-deranged')).not_to be_empty
     end
 
-    it "should violate on 123.123.123" do
+    it 'should violate on 123.123.123' do
       expect(av.validate_rule('ip-3not4')).not_to be_empty
     end
 
-    it "should not violate on 1.1.1.1" do
+    it 'should not violate on 1.1.1.1' do
       expect(av.validate_rule('ip-allones')).to be_empty
     end
 
-    it "should not violate on 1.1.1.1/24" do
+    it 'should not violate on 1.1.1.1/24' do
       expect(av.validate_rule('ip-slash24')).to be_empty
     end
 
-    it "should not violate on 255.255.255.255" do
+    it 'should not violate on 255.255.255.255' do
       expect(av.validate_rule('ip-merryxmas')).to be_empty
     end
 
-    it "should not violate on ::" do
+    it 'should not violate on ::' do
       expect(av.validate_rule('ip-emptyv6')).to be_empty
     end
   end
@@ -87,11 +87,11 @@ describe "'looks_like' check" do
     let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_url') }
     let(:av) { Chef::Attribute::Validator.new(node) }
 
-    it "should not violate on missing" do
+    it 'should not violate on missing' do
       expect(av.validate_rule('url-missing')).to be_empty
     end
 
-    it "should not violate on nil" do
+    it 'should not violate on nil' do
       expect(av.validate_rule('url-nil')).to be_empty
     end
 
@@ -117,27 +117,27 @@ describe "'looks_like' check" do
     let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_guid') }
     let(:av) { Chef::Attribute::Validator.new(node) }
 
-    it "should not violate on missing" do
+    it 'should not violate on missing' do
       expect(av.validate_rule('guid-missing')).to be_empty
     end
 
-    it "should not violate on nil" do
+    it 'should not violate on nil' do
       expect(av.validate_rule('guid-nil')).to be_empty
     end
 
-    it "should not violate on a lower-case guid" do
+    it 'should not violate on a lower-case guid' do
       expect(av.validate_rule('guid-lower-case')).to be_empty
     end
 
-    it "should not violate on a upper-case guid" do
+    it 'should not violate on a upper-case guid' do
       expect(av.validate_rule('guid-upper-case')).to be_empty
     end
 
-    it "should violate on a guid without dashes" do
+    it 'should violate on a guid without dashes' do
       expect(av.validate_rule('guid-spaces')).not_to be_empty
     end
 
-    it "should violate on an empty string" do
+    it 'should violate on an empty string' do
       expect(av.validate_rule('guid-empty')).not_to be_empty
     end
 
@@ -147,47 +147,47 @@ describe "'looks_like' check" do
     let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_email') }
     let(:av) { Chef::Attribute::Validator.new(node) }
 
-    it "should not violate on missing" do
+    it 'should not violate on missing' do
       expect(av.validate_rule('email-missing')).to be_empty
     end
 
-    it "should not violate on nil" do
+    it 'should not violate on nil' do
       expect(av.validate_rule('email-nil')).to be_empty
     end
 
-    it "should violate on an empty string" do
+    it 'should violate on an empty string' do
       expect(av.validate_rule('email-empty')).not_to be_empty
     end
 
-    it "should not violate on joe@example.com" do
+    it 'should not violate on joe@example.com' do
       expect(av.validate_rule('email-joe')).to be_empty
     end
 
-    it "should not violate on a upper-case email" do
+    it 'should not violate on a upper-case email' do
       expect(av.validate_rule('email-case-upper')).to be_empty
     end
 
-    it "should not violate on a joe+tag@foo.com" do
+    it 'should not violate on a joe+tag@foo.com' do
       expect(av.validate_rule('email-tagged')).to be_empty
     end
 
-    it "should violate on a email without a user" do
+    it 'should violate on a email without a user' do
       expect(av.validate_rule('email-no-user')).not_to be_empty
     end
 
-    it "should violate on a email without a hostname" do
+    it 'should violate on a email without a hostname' do
       expect(av.validate_rule('email-no-hostname')).not_to be_empty
     end
 
-    it "should violate on a email with spaces" do
+    it 'should violate on a email with spaces' do
       expect(av.validate_rule('email-spaces')).not_to be_empty
     end
 
-    it "should violate on a email with quotes" do
+    it 'should violate on a email with quotes' do
       expect(av.validate_rule('email-quotes')).not_to be_empty
     end
 
-    it "should violate on phonetic-at" do
+    it 'should violate on phonetic-at' do
       expect(av.validate_rule('email-phonetic-at')).not_to be_empty
     end
 
@@ -197,23 +197,23 @@ describe "'looks_like' check" do
     let(:node) { CAVHelper.load_fixture_attributes('check_looks_like_hostname') }
     let(:av) { Chef::Attribute::Validator.new(node) }
 
-    it "should not violate on missing" do
+    it 'should not violate on missing' do
       expect(av.validate_rule('hostname-missing')).to be_empty
     end
 
-    it "should not violate on nil" do
+    it 'should not violate on nil' do
       expect(av.validate_rule('hostname-nil')).to be_empty
     end
 
-    it "should violate on an empty string" do
+    it 'should violate on an empty string' do
       expect(av.validate_rule('hostname-empty')).not_to be_empty
     end
 
-    it "should not violate on a lower-case hostname" do
+    it 'should not violate on a lower-case hostname' do
       expect(av.validate_rule('hostname-case-lower')).to be_empty
     end
 
-    it "should not violate on a upper-case hostname" do
+    it 'should not violate on a upper-case hostname' do
       expect(av.validate_rule('hostname-case-upper')).to be_empty
     end
 
@@ -237,7 +237,7 @@ describe "'looks_like' check" do
       expect(av.validate_rule('hostname-underscore')).not_to be_empty
     end
 
-    it "should violate on spaces" do
+    it 'should violate on spaces' do
       expect(av.validate_rule('hostname-spaces')).not_to be_empty
     end
 

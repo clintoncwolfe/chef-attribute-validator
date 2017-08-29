@@ -2,7 +2,7 @@
 default['yep']['what'] = 'missed me'
 default['nil'] = nil
 
-default['empty']['string'] = ""
+default['empty']['string'] = ''
 default['empty']['array'] = []
 default['empty']['hash'] = {}
 

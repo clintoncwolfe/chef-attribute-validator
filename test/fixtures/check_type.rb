@@ -2,10 +2,10 @@
 rules = default['attribute-validator']['rules']
 
 
-default['empty'] = ""
-default['foo'] = "foo"
+default['empty'] = ''
+default['foo'] = 'foo'
 default['number'] = 42
-default['number-as-string'] = "42"
+default['number-as-string'] = '42'
 default['98point6'] = 98.6
 default['zero'] = 0
 default['one'] = 1
@@ -24,8 +24,8 @@ default['array-incr1'] = [ 'apples' ]
 default['array-incr1'] = [ 'bananas' ]
 
 default['array-incr2'] = [ ]
-default['array-incr2'][0] = "kodos"
-default['array-incr2'][1] = "kang"
+default['array-incr2'][0] = 'kodos'
+default['array-incr2'][1] = 'kang'
 
 default['array-incr3'] = [ ]
 default['array-incr3'] = [ { 'lisa' => 'clobbergirl' } ]

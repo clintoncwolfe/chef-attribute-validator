@@ -1,4 +1,4 @@
-default['empty'] = ""
+default['empty'] = ''
 default['nil'] = nil
 
 default['not']['a']['scalar']['here'] = {}

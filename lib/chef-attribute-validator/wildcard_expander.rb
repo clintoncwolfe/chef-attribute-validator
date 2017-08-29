@@ -21,7 +21,7 @@ class Chef
           steps = slashpath.split('/')
 
           # Since we begin with /, the first element is ""
-          if steps[0] == "" then steps.shift end
+          if steps[0] == '' then steps.shift end
 
           steps
         end

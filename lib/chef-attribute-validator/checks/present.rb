@@ -22,7 +22,7 @@ class Chef
             else
               # Presence is taboo.  Violate on each extant attr
               attrset.each do |path, value|
-                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "This rule bans the presense of this attribute, but it exists (regardless of value).")
+                violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, 'This rule bans the presense of this attribute, but it exists (regardless of value).')
               end
             end
             violations

@@ -1,7 +1,7 @@
 rules = default['attribute-validator']['rules']
 
 default['nil'] = nil
-default['string'] = "pants"
+default['string'] = 'pants'
 
 default['array']['empty'] = []
 default['array']['one'] = [ 'mellow gold' ]
