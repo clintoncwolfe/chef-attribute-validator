@@ -3,7 +3,6 @@ default['nil'] = nil
 
 default['not']['a']['scalar']['here'] = {}
 
-
 default['fruits']['a'] = 'banana'
 default['fruits']['b'] = 'gichee'
 default['fruits']['c'] = 'tomato'
@@ -49,4 +48,3 @@ rules['cougars'] = {
   'path' => '/cats/*',
   'enum' => ['leopard', 'puma', 'mountain lion', 'catamount'],
 }
-

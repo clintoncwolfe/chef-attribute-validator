@@ -7,7 +7,6 @@ require 'bundler/gem_tasks'
 desc 'Runs all development tests'
 task :test
 
-
 task :test => [:syntax]
 desc 'Checks ruby files for syntax errors'
 task :syntax do |t|
@@ -16,7 +15,6 @@ task :syntax do |t|
     system("/bin/echo -n '#{f}:  '; ruby -c #{f}")
   end
 end
-
 
 # Rubocop
 begin
@@ -32,6 +30,3 @@ end
 #  t.pattern = 'test/unit/**/*_spec.rb'
 #  t.rspec_opts = "-fd"
 #end
-
-
-

@@ -3,7 +3,6 @@ require_relative './spec_helper'
 # Verify that the 'present' check works correctly
 
 describe "'present' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('present')
@@ -87,7 +86,7 @@ describe "'present' check" do
   context 'when present is false, but the value is present' do
     let(:node) { CAVHelper.load_fixture_attributes('check_present_assorted') }
     let(:av) { Chef::Attribute::Validator.new(node) }
-    
+
     it 'should violate when the value is a string' do
       expect(av.validate_rule('spurious-present-string')).not_to be_empty
     end
@@ -100,11 +99,9 @@ describe "'present' check" do
   context 'when present is false, but the attribute is missing' do
     let(:node) { CAVHelper.load_fixture_attributes('check_present_assorted') }
     let(:av) { Chef::Attribute::Validator.new(node) }
-    
+
     it 'should not violate when the attribute is missing' do
       expect(av.validate_rule('spurious-missing')).to be_empty
     end
   end
-  
-
 end

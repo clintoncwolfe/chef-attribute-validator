@@ -3,7 +3,6 @@ require_relative './spec_helper'
 # Verify that the 'required' check works correctly
 
 describe "'required' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('required')
@@ -87,7 +86,7 @@ describe "'required' check" do
   context 'when not required, but the value is present' do
     let(:node) { CAVHelper.load_fixture_attributes('check_required_assorted') }
     let(:av) { Chef::Attribute::Validator.new(node) }
-    
+
     it 'should not violate when the value is a string' do
       expect(av.validate_rule('optional-present-string')).to be_empty
     end
@@ -96,11 +95,9 @@ describe "'required' check" do
   context 'when not required, but the attribute is missing' do
     let(:node) { CAVHelper.load_fixture_attributes('check_required_assorted') }
     let(:av) { Chef::Attribute::Validator.new(node) }
-    
+
     it 'should not violate when the attribute is missing' do
       expect(av.validate_rule('optional-missing')).to be_empty
     end
   end
-  
-
 end

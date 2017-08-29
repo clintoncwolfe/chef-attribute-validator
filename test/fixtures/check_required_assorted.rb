@@ -9,10 +9,8 @@ default['empty']['hash'] = {}
 default['present']['string'] = 'foo'
 default['present']['zero'] = 0
 default['present']['false'] = false
-default['present']['array'] = [ 'a' ] 
+default['present']['array'] = [ 'a' ]
 default['present']['hash'] = { 'a' => 'b' }
-
-
 
 rules = default['attribute-validator']['rules']
 rules['missing-shallow'] = {
@@ -79,4 +77,3 @@ rules['optional-missing'] = {
   'path' =>  '/nope',
   'required' => false,
 }
-

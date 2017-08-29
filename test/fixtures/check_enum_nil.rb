@@ -3,4 +3,3 @@ rules['check-enum-nil'] = {
   'path' =>  '/empty',
   'enum' => nil,
 }
-

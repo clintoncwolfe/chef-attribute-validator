@@ -50,7 +50,6 @@ rules['ip-slash24'] = {
   'looks_like' => 'ip',
 }
 
-
 rules['ip-emptyv6'] = {
   'path' =>  '/v6/empty',
   'looks_like' => 'ip',

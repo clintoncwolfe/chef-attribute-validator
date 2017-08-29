@@ -11,10 +11,10 @@ class Chef
               raise "Bad 'present' check argument '#{check_arg}' for rule '#{rule_name}' - expected one of true,false"
             end
           end
-    
+
           def check(attrset)
             violations = []
-            if check_arg 
+            if check_arg
               # OK, presence is required - violate if attrset is empty
               if attrset.empty?
                 violations.push Chef::Attribute::Validator::Violation.new(rule_name, path_spec, "No attributes exist for path '#{path_spec}', but this rule says its presence is required.")

@@ -23,19 +23,17 @@ class Chef
             0.1
           end
 
-
           # TODO: maybe we could cache this on the node, or something?
           def find_all_slashpaths (prefix='', node_cursor = nil)
             node_cursor ||= node
             child_paths = []
 
-            
             if node_cursor.kind_of?(Array)
               node_cursor.each_index do |idx|
                 child_paths.push prefix + '/' + idx.to_s
                 if node_cursor[idx].kind_of?(Mash) || node_cursor[idx].kind_of?(Array)
                   child_paths += find_all_slashpaths(prefix + '/' + idx.to_s, node_cursor[idx])
-                end                
+                end
               end
             else
               node_cursor.keys.each do |key|
@@ -56,7 +54,7 @@ class Chef
 
             # * => "anything but a slash"
             re.gsub!(/([^*])\*(?!\*)/, '\1[^\/]*')
-            
+
             # ? => "any single char other than a slash"
             re.gsub!(/\?/, '[^\/]')
 

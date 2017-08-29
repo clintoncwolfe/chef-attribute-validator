@@ -3,4 +3,3 @@ rules['check-looks-like-arg-email'] = {
   'path' =>  '/nil',
   'looks_like' => 'email',
 }
-

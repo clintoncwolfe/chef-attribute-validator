@@ -1,7 +1,6 @@
 require_relative './spec_helper'
 
 describe "'proc' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('proc')
@@ -62,7 +61,5 @@ describe "'proc' check" do
     it 'a violation should include the correct rule name' do
       expect(av.validate_rule('invalid-fibo')[0].rule_name).to eql 'invalid-fibo'
     end
-
   end
-
 end

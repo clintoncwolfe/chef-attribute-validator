@@ -7,4 +7,3 @@ default['rats'] = ['Nicodemus', 'Ratatouille']
 default['array_buildup'] = []
 default['array_buildup'] = [ 'a' ]
 default['array_buildup'] = [ 'b' ]
-

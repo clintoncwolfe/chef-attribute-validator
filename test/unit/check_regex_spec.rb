@@ -2,9 +2,7 @@ require_relative './spec_helper'
 
 # Verify that the 'regex' check works correctly
 
-
 describe "'regex' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('regex')
@@ -60,18 +58,16 @@ describe "'regex' check" do
 
     it '/^(?!foo)/ should violate on foo' do
       expect(av.validate_rule('not-foo-foo')).not_to be_empty
-    end      
+    end
 
     it '/foo/ should not violate on false' do
       expect { av.validate_rule('foo-false') }.not_to raise_error
       expect(av.validate_rule('foo-false')).to be_empty
-    end      
+    end
 
     it '/foo/ should not violate on 1' do
       expect { av.validate_rule('foo-one') }.not_to raise_error
       expect(av.validate_rule('foo-one')).to be_empty
-    end      
-
+    end
   end
-
 end

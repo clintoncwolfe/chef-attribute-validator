@@ -1,7 +1,6 @@
 require_relative './spec_helper'
 
 describe Chef::Attribute::Validator::AttributeSet do
-
   let(:node) { CAVHelper.load_fixture_attributes('attr_set') }
 
   describe 'non-wildcard, non-array slashpath access' do
@@ -24,7 +23,7 @@ describe Chef::Attribute::Validator::AttributeSet do
       let(:ats) { Chef::Attribute::Validator::AttributeSet.new(node, '/nope') }
       it 'should not be able to find /nope' do
         expect(ats.size).to eq 0
-      end        
+      end
     end
   end
 
@@ -48,12 +47,11 @@ describe Chef::Attribute::Validator::AttributeSet do
       let(:ats) { Chef::Attribute::Validator::AttributeSet.new(node, '/cats/23') }
       it 'should not be able to find /cats/23' do
         expect(ats.size).to eq 0
-      end        
+      end
     end
   end
 
   describe 'basic star wildcard' do
-
     context 'when we are looking at the root element' do
       it "should be able to run '/*'" do
         expect { Chef::Attribute::Validator::AttributeSet.new(node, '/*') }.not_to raise_error
@@ -97,7 +95,7 @@ describe Chef::Attribute::Validator::AttributeSet do
         expect(ats['/deeper/deeper_yet/one']).to eq 1
       end
     end
-      
+
     context 'when the wildcarded step does not exist' do
       it "should be able to run '/nope/*'" do
         expect { Chef::Attribute::Validator::AttributeSet.new(node, '/nope/*') }.not_to raise_error
@@ -106,8 +104,6 @@ describe Chef::Attribute::Validator::AttributeSet do
       it "should not be able to find '/nope/*'" do
         expect(ats.size).to eq 0
       end
-
     end
   end
-
 end

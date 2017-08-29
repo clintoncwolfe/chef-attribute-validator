@@ -35,5 +35,3 @@ rules['url-http-localhost'] = {
   'path' =>  '/http/localhost',
   'looks_like' => 'url',
 }
-
-

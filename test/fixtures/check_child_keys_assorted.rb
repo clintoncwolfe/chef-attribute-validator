@@ -43,8 +43,6 @@ rules['re-foo-two'] = {
   'child_keys' => /foo/,
 }
 
-
-
 rules['ar-foo-nil'] = {
   'path' =>  '/nil',
   'child_keys' => ['foo', 'bar'],
@@ -81,10 +79,3 @@ rules['ar-foo-baz'] = {
   'path' =>  '/baz',
   'child_keys' => ['foo', 'bar'],
 }
-
-
-
-
-
-
-

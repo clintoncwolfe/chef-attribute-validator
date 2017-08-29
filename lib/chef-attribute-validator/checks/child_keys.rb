@@ -8,7 +8,7 @@ class Chef
 
           def validate_check_arg
             if check_arg.kind_of?(Array)
-              unless check_arg.all? { |e| e.kind_of?(String) } 
+              unless check_arg.all? { |e| e.kind_of?(String) }
                 raise "Bad 'child_keys' check argument '#{check_arg}' for rule '#{rule_name}' - expected a Regexp or an Array of Strings."
               end
             elsif ! check_arg.kind_of?(Regexp)
@@ -24,7 +24,7 @@ class Chef
                 value.keys.each do |key|
                   if check_arg.kind_of?(Array)
                     unless check_arg.include?(key)
-                      violations.push Chef::Attribute::Validator::Violation.new(rule_name, path + '/' + key, "Child Key #{key} must be one of #{check_arg.join(', ')}.")                      
+                      violations.push Chef::Attribute::Validator::Violation.new(rule_name, path + '/' + key, "Child Key #{key} must be one of #{check_arg.join(', ')}.")
                     end
                   elsif check_arg.kind_of?(Regexp)
                     unless check_arg.match(key)

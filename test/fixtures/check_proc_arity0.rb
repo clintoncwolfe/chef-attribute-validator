@@ -5,6 +5,4 @@ rules['check-proc-nil'] = {
     []
   end
 
-    
 }
-

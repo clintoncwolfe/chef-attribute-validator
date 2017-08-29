@@ -6,7 +6,7 @@ class Chef
 
           register_check('type', Type)
 
-          def validate_check_arg            
+          def validate_check_arg
             expected = [
                         'string',
                         'number',
@@ -14,7 +14,7 @@ class Chef
                         'hash',
                         'array',
                        ]
-       
+
             unless expected.include?(check_arg)
               raise "Bad 'type' check argument '#{checkarg}' for rule '#{rule_name}' - expected one of #{expected.join(',')}"
             end
@@ -41,7 +41,7 @@ class Chef
 
             violations
           end
-          
+
         end
       end
     end

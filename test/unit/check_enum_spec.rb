@@ -1,7 +1,6 @@
 require_relative './spec_helper'
 
 describe "'enum' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('enum')
@@ -70,7 +69,5 @@ describe "'enum' check" do
     it 'should violate when a tomato is not a fruit' do
       expect(av.validate_rule('today-its-a-vegetable')).not_to be_empty
     end
-
   end
-
 end

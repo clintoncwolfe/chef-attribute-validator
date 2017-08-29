@@ -11,7 +11,7 @@ class Chef
               raise "Bad 'required' check argument '#{check_arg}' for rule '#{rule_name}' - expected one of true,false"
             end
           end
-    
+
           def check(attrset)
             violations = []
             if check_arg # If we are not required, we're effectively a no-op
@@ -20,14 +20,14 @@ class Chef
               else
                 attrset.each do |path, value|
                   if val_scalar?(value)
-                    if value.nil? 
+                    if value.nil?
                       violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, 'Attributes value is nil, but is required.')
                     elsif value == ''
                       violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Attributes value is '', but is required.")
                     end
                   else
                     if value.size == 0
-                      violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, 'Attribute has no children, but is required.')       
+                      violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, 'Attribute has no children, but is required.')
                     end
                   end
                 end

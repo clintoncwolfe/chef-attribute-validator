@@ -13,6 +13,4 @@ module CAVHelper
   end
 
   module_function :load_fixture_attributes
-
 end
-

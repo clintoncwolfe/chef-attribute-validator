@@ -3,4 +3,3 @@ rules['check-enum-array-empty'] = {
   'path' =>  '/empty',
   'enum' => [],
 }
-

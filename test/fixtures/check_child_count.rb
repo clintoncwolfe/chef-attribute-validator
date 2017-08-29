@@ -101,4 +101,3 @@ rules['max-hash-two-two'] = {
   'path' => '/hash/two',
   'max_children' => 2
 }
-

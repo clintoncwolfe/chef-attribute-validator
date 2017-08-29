@@ -69,6 +69,3 @@ rules['email-phonetic-at'] = {
   'path' =>  '/email/bad/phonetic',
   'looks_like' => 'email',
 }
-
-
-

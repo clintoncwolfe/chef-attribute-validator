@@ -2,9 +2,7 @@ require_relative './spec_helper'
 
 # Verify that the 'type' check works correctly
 
-
 describe "'type' check" do
-
   let(:node) { CAVHelper.load_fixture_attributes('check_type') }
   let(:av) { Chef::Attribute::Validator.new(node) }
 
@@ -187,5 +185,4 @@ describe "'type' check" do
       expect(av.validate_rule('hash-array')).not_to be_empty
     end
   end
-
 end

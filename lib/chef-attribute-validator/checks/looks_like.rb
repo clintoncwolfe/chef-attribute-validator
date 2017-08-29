@@ -18,12 +18,12 @@ class Chef
                         'ip',
                         'url',
                        ]
-       
+
             unless expected.include?(check_arg)
               raise "Bad 'looks_like' check argument '#{check_arg}' for rule '#{rule_name}' - expected one of #{expected.join(',')}"
             end
           end
-          
+
           def check(attrset)
             violations = []
             attrset.each do |path, value|
@@ -40,7 +40,7 @@ class Chef
           end
 
           private
-          
+
           def ll_check_guid(value, path, violations)
             guid_regex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/
             unless value.match(guid_regex)
@@ -53,7 +53,7 @@ class Chef
               IPAddr.new(value)
             rescue
               violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like an IP address")
-            end  
+            end
           end
 
           def ll_check_url(value, path, violations)
@@ -63,13 +63,13 @@ class Chef
               violations.push Chef::Attribute::Validator::Violation.new(rule_name, path, "Value '#{value}' does not look like a URL")
             end
           end
-          
+
           def ll_check_email(value, path, violations)
             # This is simple and crude.  Will reject some things you might wish it didn't:
             # root@localhost
             # root
             #
-            
+
             # Email validation with regexes is stupid.
             email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
             unless value.match(email_regex)

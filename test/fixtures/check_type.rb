@@ -1,7 +1,6 @@
 
 rules = default['attribute-validator']['rules']
 
-
 default['empty'] = ''
 default['foo'] = 'foo'
 default['number'] = 42
@@ -52,32 +51,32 @@ default['hash-incr3'] = {
 #===================================================#
 rules['string-empty'] = {
   'path' => '/empty',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 rules['string-nil'] = {
   'path' => '/nil',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 rules['string-foo'] = {
   'path' => '/foo',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 rules['string-number'] = {
   'path' => '/number',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 rules['string-array'] = {
   'path' => '/array',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 rules['string-hash'] = {
   'path' => '/hash',
-  'type' => 'string',  
+  'type' => 'string',
 }
 
 #===================================================#
@@ -85,37 +84,37 @@ rules['string-hash'] = {
 #===================================================#
 rules['number-zero'] = {
   'path' => '/zero',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-nil'] = {
   'path' => '/nil',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-42'] = {
   'path' => '/number',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-98point6'] = {
   'path' => '/98point6',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-as-string'] = {
   'path' => '/number-as-string',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-array'] = {
   'path' => '/array',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 rules['number-hash'] = {
   'path' => '/hash',
-  'type' => 'number',  
+  'type' => 'number',
 }
 
 #===================================================#
@@ -124,52 +123,52 @@ rules['number-hash'] = {
 
 rules['boolean-empty'] = {
   'path' => '/empty',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-zero'] = {
   'path' => '/zero',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-one'] = {
   'path' => '/one',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-nil'] = {
   'path' => '/nil',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-true'] = {
   'path' => '/true',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-false'] = {
   'path' => '/false',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-true-as-string'] = {
   'path' => '/true-as-string',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-false-as-string'] = {
   'path' => '/false-as-string',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-array'] = {
   'path' => '/array',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 rules['boolean-hash'] = {
   'path' => '/hash',
-  'type' => 'boolean',  
+  'type' => 'boolean',
 }
 
 #===================================================#
@@ -177,47 +176,47 @@ rules['boolean-hash'] = {
 #===================================================#
 rules['array-empty'] = {
   'path' => '/array-empty',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-literal'] = {
   'path' => '/array',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-incremental-simple'] = {
   'path' => '/array-incr1',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-incremental-indexed'] = {
   'path' => '/array-incr2',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-incremental-deep'] = {
   'path' => '/array-incr3',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-nil'] = {
   'path' => '/nil',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-zero'] = {
   'path' => '/zero',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-as-string'] = {
   'path' => '/array-as-string',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 rules['array-hash'] = {
   'path' => '/hash',
-  'type' => 'array',  
+  'type' => 'array',
 }
 
 #===================================================#
@@ -225,46 +224,45 @@ rules['array-hash'] = {
 #===================================================#
 rules['hash-empty'] = {
   'path' => '/hash-empty',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-literal'] = {
   'path' => '/hash',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-incremental-simple'] = {
   'path' => '/hash-incr1',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-incremental-indexed'] = {
   'path' => '/hash-incr2',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-incremental-deep'] = {
   'path' => '/hash-incr3',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-nil'] = {
   'path' => '/nil',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-zero'] = {
   'path' => '/zero',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-as-string'] = {
   'path' => '/hash-as-string',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
 
 rules['hash-array'] = {
   'path' => '/array',
-  'type' => 'hash',  
+  'type' => 'hash',
 }
-

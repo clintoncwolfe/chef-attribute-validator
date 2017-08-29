@@ -2,9 +2,7 @@ require_relative './spec_helper'
 
 # Verify that the 'type' check works correctly
 
-
 describe "'min_children' check" do
-
   let(:node) { CAVHelper.load_fixture_attributes('check_child_count') }
   let(:av) { Chef::Attribute::Validator.new(node) }
 
@@ -31,7 +29,7 @@ describe "'min_children' check" do
 
     it 'should violate when min is 2 and array is 1' do
       expect(av.validate_rule('min-array-one-two')).not_to be_empty
-    end    
+    end
   end
 
   context 'when examining a hash' do
@@ -45,13 +43,11 @@ describe "'min_children' check" do
 
     it 'should violate when min is 2 and hash is 1' do
       expect(av.validate_rule('min-hash-one-two')).not_to be_empty
-    end    
+    end
   end
-
 end
 
 describe "'max_children' check" do
-
   let(:node) { CAVHelper.load_fixture_attributes('check_child_count') }
   let(:av) { Chef::Attribute::Validator.new(node) }
 
@@ -78,12 +74,11 @@ describe "'max_children' check" do
 
     it 'should violate when max is 1 and array is 2' do
       expect(av.validate_rule('max-array-one-two')).not_to be_empty
-    end    
+    end
 
     it 'should not violate when max is 2 and array is 2' do
       expect(av.validate_rule('max-array-two-two')).to be_empty
     end
-
   end
 
   context 'when examining a hash' do
@@ -97,13 +92,10 @@ describe "'max_children' check" do
 
     it 'should violate when max is 1 and hash is 2' do
       expect(av.validate_rule('max-hash-one-two')).not_to be_empty
-    end    
+    end
 
     it 'should not violate when max is 2 and hash is 2' do
       expect(av.validate_rule('max-hash-two-two')).to be_empty
-    end    
-
+    end
   end
-
-
 end

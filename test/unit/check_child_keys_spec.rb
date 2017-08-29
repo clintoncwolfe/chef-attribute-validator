@@ -3,7 +3,6 @@ require_relative './spec_helper'
 # Verify that the 'child_keys' check works correctly
 
 describe "'child_keys' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('child_keys')
@@ -103,7 +102,5 @@ describe "'child_keys' check" do
     it "['foo', 'bar'] should violate on baz" do
       expect(av.validate_rule('ar-foo-baz')).not_to be_empty
     end
-
   end
-
 end

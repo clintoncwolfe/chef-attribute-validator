@@ -66,5 +66,3 @@ rules['hostname-spaces'] = {
   'path' =>  '/hostname/spaces',
   'looks_like' => 'hostname',
 }
-
-

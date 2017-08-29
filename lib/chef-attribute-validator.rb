@@ -6,7 +6,7 @@ require 'chef-attribute-validator/attribute_set'
 class Chef
   class Attribute
     class Validator
-      
+
       attr_accessor :node
       attr_accessor :rules
 
@@ -29,13 +29,13 @@ class Chef
         end
         rules[rulename].apply(node)
       end
-      
+
       def validate_matching(rule_regex)
         violations = []
         rules.select { |rn,r| rule_regex.match(rn) }.each do |rulename, rule|
           violations += rule.apply(node)
         end
-        violations    
+        violations
       end
 
       private

@@ -9,7 +9,7 @@ class Chef
         attr_accessor :path
         attr_accessor :checks
         attr_accessor :enabled
-          
+
         def initialize (a_name, a_def)
           @name = a_name
           @path = a_def['path']
@@ -22,7 +22,7 @@ class Chef
           if a_def.has_key?('enabled')
             @enabled = a_def['enabled']
           end
-          
+
           @checks = {}
           a_def.keys.reject { |ck| %w(path enabled).include? ck }.sort.each do |check_name|
             checks[check_name] = Check.make(check_name, self, a_def[check_name])
@@ -43,9 +43,9 @@ class Chef
         def check_count
           checks.keys.size
         end
-        
+
         def has_check?(check_name)
-          checks.has_key?(check_name)      
+          checks.has_key?(check_name)
         end
 
       end

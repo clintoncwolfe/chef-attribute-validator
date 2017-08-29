@@ -3,4 +3,3 @@ rules['check-proc-nil'] = {
   'path' =>  '/nope',
   'proc' => nil,
 }
-

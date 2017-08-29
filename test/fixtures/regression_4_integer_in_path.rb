@@ -9,4 +9,3 @@ default['deeper_hash']['poney']['0']['child0'] = 'value'
 default['deeper_hash']['poney']['1']['child1'] = 'value'
 default['deeper_hash']['poney']['00']['child00'] = 'value'
 default['deeper_hash']['poney']['01']['child01'] = 'value'
-

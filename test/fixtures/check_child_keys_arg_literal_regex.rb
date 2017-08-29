@@ -3,4 +3,3 @@ rules['check-child-keys-arg-literal-regex'] = {
   'path' =>  '/nil',
   'child_keys' => /^$/,
 }
-

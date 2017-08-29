@@ -2,9 +2,7 @@ require_relative './spec_helper'
 
 # Verify that the 'looks_like' check works correctly
 
-
 describe "'looks_like' check" do
-
   describe 'check registry' do
     it 'should be present in the Check registry' do
       expect(Chef::Attribute::Validator::Check.list_check_types).to include('looks_like')
@@ -110,7 +108,6 @@ describe "'looks_like' check" do
     it "should not violate on 'http://localhost'" do
       expect(av.validate_rule('url-http-localhost')).to be_empty
     end
-
   end
 
   context "when the mode is 'guid'" do
@@ -140,7 +137,6 @@ describe "'looks_like' check" do
     it 'should violate on an empty string' do
       expect(av.validate_rule('guid-empty')).not_to be_empty
     end
-
   end
 
   context "when the mode is 'email'" do
@@ -190,7 +186,6 @@ describe "'looks_like' check" do
     it 'should violate on phonetic-at' do
       expect(av.validate_rule('email-phonetic-at')).not_to be_empty
     end
-
   end
 
   context "when the mode is 'hostname'" do
@@ -240,7 +235,5 @@ describe "'looks_like' check" do
     it 'should violate on spaces' do
       expect(av.validate_rule('hostname-spaces')).not_to be_empty
     end
-
   end
-  
 end

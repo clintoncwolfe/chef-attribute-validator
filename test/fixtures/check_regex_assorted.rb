@@ -41,7 +41,6 @@ rules['not-foo-foo'] = {
   'regex' => /^(?!foo)/,
 }
 
-
 rules['foo-nil'] = {
   'path' =>  '/nil',
   'regex' => /foo/,
