@@ -11,7 +11,7 @@ end
 
 proc_always_fail = Proc.new do |rule_name, attrset|
   # No matter what, return a violation
-  [ Chef::Attribute::Validator::Violation.new(rule_name, '/meh', 'I always fail') ]
+  [Chef::Attribute::Validator::Violation.new(rule_name, '/meh', 'I always fail')]
 end
 
 proc_array_looks_fibonacci = Proc.new do |rule_name, attrset|

@@ -1,6 +1,6 @@
 default['nil'] = nil
 default['scalar'] = 'thing'
-default['array'] = [ 1, 2, 3 ]
+default['array'] = [1, 2, 3]
 default['empty-hash'] = {}
 default['three']['foo'] = 1
 default['three']['oofoo'] = 2

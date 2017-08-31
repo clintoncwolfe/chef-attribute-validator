@@ -9,7 +9,7 @@ default['98point6'] = 98.6
 default['zero'] = 0
 default['one'] = 1
 default['nil'] = nil
-default['array'] = [ 'a', 'b' ]
+default['array'] = ['a', 'b']
 default['hash'] = { 'a' => 'b' }
 default['false'] = false
 default['true'] = true
@@ -19,16 +19,16 @@ default['true-as-string'] = 'true'
 default['array-as-string'] = '[1,2,3,4]'
 default['array-empty'] = []
 default['array-incr1'] = []
-default['array-incr1'] = [ 'apples' ]
-default['array-incr1'] = [ 'bananas' ]
+default['array-incr1'] = ['apples']
+default['array-incr1'] = ['bananas']
 
-default['array-incr2'] = [ ]
+default['array-incr2'] = []
 default['array-incr2'][0] = 'kodos'
 default['array-incr2'][1] = 'kang'
 
-default['array-incr3'] = [ ]
-default['array-incr3'] = [ { 'lisa' => 'clobbergirl' } ]
-default['array-incr3'] = [ { 'bart' => 'stretchboy' } ]
+default['array-incr3'] = []
+default['array-incr3'] = [{ 'lisa' => 'clobbergirl' }]
+default['array-incr3'] = [{ 'bart' => 'stretchboy' }]
 
 default['hash-as-string'] = '{"foo" => "bar" }'
 default['hash-empty'] = {}

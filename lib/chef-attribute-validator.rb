@@ -24,7 +24,7 @@ class Chef
       end
 
       def validate_rule(rulename)
-        unless rules.has_key?(rulename)
+        unless rules.key?(rulename)
           raise "No such attribute validation rule named '#{rulename}' - have rules: #{rules.keys.sort.join(',')}"
         end
         rules[rulename].apply(node)

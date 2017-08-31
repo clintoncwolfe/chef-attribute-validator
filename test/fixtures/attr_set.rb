@@ -5,5 +5,5 @@ default['deeper']['deeper_yet']['one'] = 1
 default['cats'] = ['maine coon', 'tabby', 'siamese']
 default['rats'] = ['Nicodemus', 'Ratatouille']
 default['array_buildup'] = []
-default['array_buildup'] = [ 'a' ]
-default['array_buildup'] = [ 'b' ]
+default['array_buildup'] = ['a']
+default['array_buildup'] = ['b']

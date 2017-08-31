@@ -7,7 +7,7 @@ default['fruits']['a'] = 'banana'
 default['fruits']['b'] = 'gichee'
 default['fruits']['c'] = 'tomato'
 
-default['cats'] = [ 'leopard', 'puma', 'mountain lion', 'catamount' ]
+default['cats'] = ['leopard', 'puma', 'mountain lion', 'catamount']
 
 rules = default['attribute-validator']['rules']
 rules['nil'] = {
@@ -28,7 +28,7 @@ rules['empty-empty-match'] = {
 }
 rules['hash'] = {
   'path' => '/not/a/scalar',
-  'enum' => [ 'a' ],
+  'enum' => ['a'],
 }
 rules['fruits'] = {
   'path' => '/fruits/a',

@@ -13,7 +13,7 @@ class Chef
         end
 
         def self.make(check_name, a_rule, a_check_arg)
-          unless @@check_classes.has_key?(check_name)
+          unless @@check_classes.key?(check_name)
             raise "Unrecognized option or check type '#{check_name}' for attribute validation rule '#{a_rule.name}'"
           end
           checker = @@check_classes[check_name].new(a_rule, a_check_arg)

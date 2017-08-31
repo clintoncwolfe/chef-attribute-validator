@@ -11,7 +11,7 @@ describe Chef::Attribute::Validator::AttributeSet do
       let(:ats) { Chef::Attribute::Validator::AttributeSet.new(node, '/one') }
       it 'should be able to find /one' do
         expect(ats.size).to eq 1
-        expect(ats.has_key?('/one')).to be_true
+        expect(ats.key?('/one')).to be_true
         expect(ats['/one']).to eq 1
       end
     end
@@ -35,7 +35,7 @@ describe Chef::Attribute::Validator::AttributeSet do
       let(:ats) { Chef::Attribute::Validator::AttributeSet.new(node, '/cats/1') }
       it 'should be able to find /cats/1' do
         expect(ats.size).to eq 1
-        expect(ats.has_key?('/cats/1')).to be_true
+        expect(ats.key?('/cats/1')).to be_true
         expect(ats['/cats/1']).to eq 'tabby'
       end
     end

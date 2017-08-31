@@ -70,7 +70,7 @@ class Chef
               end
 
             elsif nv.respond_to?(:has_key?) then
-              if nv.has_key?(step) then
+              if nv.key?(step) then
                 nv = nv[step]
               else
                 # No such key

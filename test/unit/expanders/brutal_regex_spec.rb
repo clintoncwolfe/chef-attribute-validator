@@ -109,7 +109,7 @@ describe Chef::Attribute::Validator::WildcardExpander::BrutalRegex do
       '/?oo' => '^/[^\/]oo$',
       '/**'  => '^/.*$',
       '/foo/**/bar' => '^/foo/.*/bar$',
-    }.each do | spec, regex |
+    }.each do |spec, regex|
       it "should convert '#{spec}' to '#{regex}'" do
         exp = Chef::Attribute::Validator::WildcardExpander::BrutalRegex.new(spec, node)
         expect(exp.convert_path_spec_to_regex).to eql Regexp.new(regex)

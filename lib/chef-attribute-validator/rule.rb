@@ -19,7 +19,7 @@ class Chef
           end
 
           @enabled = true
-          if a_def.has_key?('enabled')
+          if a_def.key?('enabled')
             @enabled = a_def['enabled']
           end
 
@@ -45,7 +45,7 @@ class Chef
         end
 
         def has_check?(check_name)
-          checks.has_key?(check_name)
+          checks.key?(check_name)
         end
 
       end

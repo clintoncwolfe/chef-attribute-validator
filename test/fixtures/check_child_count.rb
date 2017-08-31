@@ -4,8 +4,8 @@ default['nil'] = nil
 default['string'] = 'pants'
 
 default['array']['empty'] = []
-default['array']['one'] = [ 'mellow gold' ]
-default['array']['two'] = [ 'mellow gold', 'odelay' ]
+default['array']['one'] = ['mellow gold']
+default['array']['two'] = ['mellow gold', 'odelay']
 default['array']['fifty'] = ['a'] * 50
 
 default['hash']['empty'] = {}
