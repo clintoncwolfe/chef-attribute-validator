@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Type < Check
-
           register_check('type', Type)
 
           def validate_check_arg
@@ -41,7 +40,6 @@ class Chef
 
             violations
           end
-
         end
       end
     end

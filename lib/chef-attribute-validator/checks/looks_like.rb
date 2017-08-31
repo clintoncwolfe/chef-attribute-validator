@@ -7,7 +7,6 @@ class Chef
     class Validator
       class Check
         class LooksLike < Check
-
           register_check('looks_like', LooksLike)
 
           def validate_check_arg

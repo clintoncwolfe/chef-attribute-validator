@@ -6,7 +6,6 @@ require_relative './wildcard_expander'
 class Chef
   class Attribute
     class Validator
-
       class AttributeSet
         attr_accessor :guts
         attr_accessor :path
@@ -29,7 +28,6 @@ class Chef
             guts[slashpath] = expander.fetch_val_by_slashpath(slashpath)
           end
         end
-
       end
     end
   end

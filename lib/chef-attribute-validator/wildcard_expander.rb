@@ -2,7 +2,6 @@ class Chef
   class Attribute
     class Validator
       class WildcardExpander
-
         attr_accessor :path_spec
         attr_accessor :node
 
@@ -104,7 +103,6 @@ class Chef
           @@subclasses ||= []
           @@subclasses.push klass
         end
-
       end
     end
   end

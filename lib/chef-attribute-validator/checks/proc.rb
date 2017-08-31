@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Proc < Check
-
           register_check('proc', Proc)
 
           def validate_check_arg
@@ -18,7 +17,6 @@ class Chef
           def check(attrset)
             check_arg.call(rule_name, attrset)
           end
-
         end
       end
     end

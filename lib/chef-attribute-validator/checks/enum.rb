@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Enum < Check
-
           register_check('enum', Enum)
 
           def validate_check_arg
@@ -23,7 +22,6 @@ class Chef
             end
             violations
           end
-
         end
       end
     end

@@ -6,7 +6,6 @@ require 'chef-attribute-validator/attribute_set'
 class Chef
   class Attribute
     class Validator
-
       attr_accessor :node
       attr_accessor :rules
 
@@ -46,7 +45,6 @@ class Chef
           rules[rulename] = Chef::Attribute::Validator::Rule.new(rulename, ruledef)
         end
       end
-
     end
   end
 end

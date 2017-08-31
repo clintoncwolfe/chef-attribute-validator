@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Regex < Check
-
           register_check('regex', Regex)
 
           def validate_check_arg
@@ -25,7 +24,6 @@ class Chef
             end
             violations
           end
-
         end
       end
     end

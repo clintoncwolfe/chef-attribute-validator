@@ -3,7 +3,6 @@ class Chef
     class Validator
       class WildcardExpander
         class BrutalRegex < WildcardExpander
-
           register(self)
 
           def expand_all
@@ -66,7 +65,6 @@ class Chef
             Regexp.new(re)
 
           end
-
         end
       end
     end

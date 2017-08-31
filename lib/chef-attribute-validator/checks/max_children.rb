@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class MaxChildren < Check
-
           register_check('max_children', MaxChildren)
 
           def validate_check_arg
@@ -29,7 +28,6 @@ class Chef
             violations
 
           end
-
         end
       end
     end

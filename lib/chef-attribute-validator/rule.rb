@@ -47,7 +47,6 @@ class Chef
         def has_check?(check_name)
           checks.key?(check_name)
         end
-
       end
     end
   end

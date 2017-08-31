@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Present < Check
-
           register_check('present', Present)
 
           def validate_check_arg

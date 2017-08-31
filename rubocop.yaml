@@ -11,6 +11,12 @@ Style/TrailingCommaInLiteral:
 
 Style/RegexpLiteral:
   Enabled: false
-  
+
+# This is a TODO
 Metrics/LineLength:
   Max: 100
+  Enabled: false
+
+# This is a TODO
+Metrics/BlockLength:
+  Enabled: false

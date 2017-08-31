@@ -3,7 +3,6 @@ class Chef
     class Validator
       class WildcardExpander
         class NoWildcards < WildcardExpander
-
           register(self)
 
           def expand_all
@@ -21,7 +20,6 @@ class Chef
               1.0
             end
           end
-
         end
       end
     end

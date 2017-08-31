@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class Required < Check
-
           register_check('required', Required)
 
           def validate_check_arg

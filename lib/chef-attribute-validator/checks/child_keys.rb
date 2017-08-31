@@ -3,7 +3,6 @@ class Chef
     class Validator
       class Check
         class ChildKeys < Check
-
           register_check('child_keys', ChildKeys)
 
           def validate_check_arg
@@ -38,7 +37,6 @@ class Chef
             end
             violations
           end
-
         end
       end
     end
