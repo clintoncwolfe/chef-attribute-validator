@@ -1,0 +1,16 @@
+# See http://rubocop.readthedocs.io/en/latest/configuration/
+# and http://rubocop.readthedocs.io/en/latest/cops/#available-cops
+
+# This is in prep for ruby 3, but it's just noisy now
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# You'll pry that trailing comma out of my cold dead hands
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+  
+Metrics/LineLength:
+  Max: 100
