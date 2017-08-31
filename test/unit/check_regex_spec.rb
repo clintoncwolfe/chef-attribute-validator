@@ -20,11 +20,11 @@ describe "'regex' check" do
     end
     it 'should reject a string' do
       node = CAVHelper.load_fixture_attributes('check_regex_string')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'regex' check argument 'foo\\d{3}.+' for rule 'check-regex-string-valid' - expected a Regexp")
     end
     it 'should reject a nil regex' do
       node = CAVHelper.load_fixture_attributes('check_regex_nil')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'regex' check argument '' for rule 'check-regex-nil' - expected a Regexp")
     end
   end
 

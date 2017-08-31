@@ -24,11 +24,11 @@ describe "'child_keys' check" do
     end
     it 'should reject a string' do
       node = CAVHelper.load_fixture_attributes('check_child_keys_arg_string')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'child_keys' check argument 'thing' for rule 'check-child-keys-arg-string' - expected a Regexp or an Array of Strings.")
     end
     it 'should reject a nil regex' do
       node = CAVHelper.load_fixture_attributes('check_child_keys_arg_nil')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'child_keys' check argument '' for rule 'check-child-keys-arg-nil' - expected a Regexp or an Array of Strings.")
     end
   end
 

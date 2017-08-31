@@ -32,11 +32,11 @@ describe "'looks_like' check" do
     end
     it "should reject 'your mom'" do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_your_mom')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'looks_like' check argument 'your mom' for rule 'check-looks-like-arg-your-mom' - expected one of email,guid,hostname,ip,url")
     end
     it 'should reject a regex' do
       node = CAVHelper.load_fixture_attributes('check_looks_like_arg_regex')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'looks_like' check argument '(?-mix:foo)' for rule 'check-looks-like-arg-regex' - expected one of email,guid,hostname,ip,url")
     end
   end
 

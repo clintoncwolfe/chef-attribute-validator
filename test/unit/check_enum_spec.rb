@@ -22,11 +22,11 @@ describe "'enum' check" do
     end
     it 'should reject a string' do
       node = CAVHelper.load_fixture_attributes('check_enum_string')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'enum' check argument 'lol, l8r, <3' for rule 'check-enum-string' - expected an Array")
     end
     it 'should reject a nil' do
       node = CAVHelper.load_fixture_attributes('check_enum_nil')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'enum' check argument '' for rule 'check-enum-nil' - expected an Array")
     end
   end
 

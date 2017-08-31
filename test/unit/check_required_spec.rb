@@ -20,7 +20,7 @@ describe "'required' check" do
     end
     it 'should reject 0' do
       node = CAVHelper.load_fixture_attributes('check_required_zero')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'required' check argument '0' for rule 'check-required_zero' - expected one of true,false")
     end
   end
 

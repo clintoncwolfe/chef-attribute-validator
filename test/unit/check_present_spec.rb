@@ -20,7 +20,7 @@ describe "'present' check" do
     end
     it 'should reject 0' do
       node = CAVHelper.load_fixture_attributes('check_present_zero')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'present' check argument '0' for rule 'check-present_zero' - expected one of true,false")
     end
   end
 

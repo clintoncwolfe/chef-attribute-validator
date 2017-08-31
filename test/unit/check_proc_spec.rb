@@ -10,15 +10,31 @@ describe "'proc' check" do
   describe 'check_arg checks' do
     it 'should reject nil' do
       node = CAVHelper.load_fixture_attributes('check_proc_nil')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      expect { Chef::Attribute::Validator.new(node) }.to raise_error("Bad 'proc' check argument '' for rule 'check-proc-nil' - expected a Proc")
     end
+
+    # Bad 'proc' check argument '#<Proc:0x007fd4714f0680@/Users/clinton/sandbox/attribute-v... for rule 'check-proc-nil' - Proc must take exactly two arguments, a rule name and an AttributeSet.
+    re = Regexp.new(/Bad 'proc' check argument .+ for rule 'check-proc-nil' - Proc must take exactly two arguments, a rule name and an AttributeSet/)
+    
     it 'should reject a 0-arg Proc' do
       node = CAVHelper.load_fixture_attributes('check_proc_arity0')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      error = ''
+      begin
+        Chef::Attribute::Validator.new(node)
+      rescue Exception => exp
+        error = exp.to_s
+      end
+      expect(error).to match(re)
     end
     it 'should reject a 1-arg Proc' do
       node = CAVHelper.load_fixture_attributes('check_proc_arity1')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      error = ''
+      begin
+        Chef::Attribute::Validator.new(node)
+      rescue Exception => exp
+        error = exp.to_s
+      end
+      expect(error).to match(re)
     end
     it 'should accept a 2-arg Proc' do
       node = CAVHelper.load_fixture_attributes('check_proc_arity2')
@@ -26,7 +42,13 @@ describe "'proc' check" do
     end
     it 'should reject a 3-arg Proc' do
       node = CAVHelper.load_fixture_attributes('check_proc_arity3')
-      expect { Chef::Attribute::Validator.new(node) }.to raise_error
+      error = ''
+      begin
+        Chef::Attribute::Validator.new(node)
+      rescue Exception => exp
+        error = exp.to_s
+      end
+      expect(error).to match(re)
     end
   end
 

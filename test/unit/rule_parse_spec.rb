@@ -39,7 +39,7 @@ describe 'one rule with a missing path' do
   let(:node) { CAVHelper.load_fixture_attributes('rules_missing_path') }
 
   it 'should fail during the constructor' do
-    expect { Chef::Attribute::Validator.new(node) }.to raise_error
+    expect { Chef::Attribute::Validator.new(node) }.to raise_error("Missing 'path' attribute for attribute validation rule 'test-missing-path'")
   end
 end
 
