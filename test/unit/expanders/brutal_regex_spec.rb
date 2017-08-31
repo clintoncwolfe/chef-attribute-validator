@@ -8,7 +8,7 @@ describe Chef::Attribute::Validator::WildcardExpander::BrutalRegex do
       let(:result) { exp.find_all_slashpaths }
 
       it 'should prefix all entries with /' do
-        expect(result.all? { |sp| sp.match(/^\//) }).to be_true
+        expect(result.all? { |sp| sp.match(/^\//) }).to be true
       end
 
       it 'should find the right number of entries' do
@@ -26,7 +26,7 @@ describe Chef::Attribute::Validator::WildcardExpander::BrutalRegex do
       let(:result) { exp.find_all_slashpaths }
 
       it 'should prefix all entries with /' do
-        expect(result.all? { |sp| sp.match(/^\//) }).to be_true
+        expect(result.all? { |sp| sp.match(/^\//) }).to be true
       end
 
       it 'should find the right number of entries' do
@@ -62,7 +62,7 @@ describe Chef::Attribute::Validator::WildcardExpander::BrutalRegex do
       let(:result) { exp.find_all_slashpaths }
 
       it 'should prefix all entries with /' do
-        expect(result.all? { |sp| sp.match(/^\//) }).to be_true
+        expect(result.all? { |sp| sp.match(/^\//) }).to be true
       end
 
       it 'should find the right number of entries' do

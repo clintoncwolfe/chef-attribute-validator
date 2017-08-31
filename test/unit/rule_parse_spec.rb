@@ -57,7 +57,7 @@ describe 'one rule with a type check' do
   end
 
   it 'should have one rule with a type check check' do
-    expect(av.rules['test-type-rule'].has_check?('type')).to be_true
+    expect(av.rules['test-type-rule'].has_check?('type')).to be true
   end
 end
 
@@ -75,10 +75,10 @@ describe 'one rule with a type check and a min_children check' do
   end
 
   it 'should have one rule with a type check check' do
-    expect(av.rules['test-type-and-min-children-rule'].has_check?('type')).to be_true
+    expect(av.rules['test-type-and-min-children-rule'].has_check?('type')).to be true
   end
 
   it 'should have one rule with a min_children check' do
-    expect(av.rules['test-type-and-min-children-rule'].has_check?('min_children')).to be_true
+    expect(av.rules['test-type-and-min-children-rule'].has_check?('min_children')).to be true
   end
 end
