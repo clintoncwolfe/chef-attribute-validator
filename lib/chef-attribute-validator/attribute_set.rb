@@ -13,7 +13,7 @@ class Chef
 
         extend Forwardable
 
-        def_delegators :@guts, :size, :each, :empty?, :has_key?, :[], :keys, :select, :reject
+        def_delegators :@guts, :size, :each, :empty?, :key?, :has_key?, :[], :keys, :select, :reject
 
         def initialize(a_node, a_path)
           @guts = {}
